@@ -1,0 +1,26 @@
+.font-display {
+  font-family: "Oswald", sans-serif;
+}
+
+.font-serif {
+  font-family: "Cormorant Garamond", serif;
+}
+
+.font-sans {
+  font-family: "Lato", sans-serif;
+}
+
+.text-responsive-hero {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.text-responsive-mega {
+  font-size: clamp(16rem, 20vw, 24rem);
+  line-height: 1;
+}
+
+.text-responsive-display {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.15;
+}/*# sourceMappingURL=typography.css.map */

@@ -1,0 +1,61 @@
+// Color Palette
+$color-primary: #D5C5AB;
+$color-accent-gold: #C6A87C;
+$color-background-dark: #0f0f0f;
+$color-surface-dark: #1C1C1C;
+$color-text-muted: #888888;
+$color-background-light: #F5F2EA;
+
+// Typography
+$font-display: 'Oswald', sans-serif;
+$font-serif: 'Cormorant Garamond', serif;
+$font-sans: 'Lato', sans-serif;
+
+// Letter Spacing
+$tracking-tighter: -0.05em;
+$tracking-widest: 0.25em;
+$tracking-mega: 0.5em;
+
+// Font Sizes
+$text-xs: 0.625rem;      // 10px
+$text-sm: 0.75rem;       // 12px
+$text-base: 1rem;        // 16px
+$text-lg: 1.125rem;      // 18px
+$text-xl: 1.25rem;       // 20px
+$text-2xl: 1.5rem;       // 24px
+$text-3xl: 1.875rem;     // 30px
+$text-4xl: 2.25rem;      // 36px
+$text-5xl: 3rem;         // 48px
+$text-6xl: 3.75rem;      // 60px
+$text-7xl: 4.5rem;       // 72px
+$text-8xl: 6rem;         // 96px
+$text-9xl: 8rem;         // 128px
+$text-10xl: 10rem;       // 160px
+$text-12xl: 12rem;       // 192px
+$text-mega: 16rem;       // 256px
+$text-giga: 24rem;       // 384px
+$text-tera: 32rem;       // 512px
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Spacing
+$container-padding-mobile: 2rem;
+$container-padding-desktop: 6rem;
+$sidebar-width: 18rem; // 72 * 4px = 288px
+
+// Z-index layers
+$z-background: 0;
+$z-content: 10;
+$z-gradient: 20;
+$z-sidebar: 30;
+$z-header: 50;
+
+// Transitions
+$transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+$transition-fast: all 0.3s ease;
+$transition-opacity: opacity 0.5s ease;

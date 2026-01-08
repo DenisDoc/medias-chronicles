@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Timeline - Info Dominant V1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Lato:wght@100;300;400;700;900&amp;family=Oswald:wght@200;300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D5C5AB", 
+              "background-light": "#F5F2EA",
+              "background-dark": "#0f0f0f",
+              "surface-dark": "#1C1C1C",
+              "text-muted": "#888888",
+              "accent-gold": "#C6A87C",
+            },
+            fontFamily: {
+              display: ["'Oswald'", "sans-serif"],
+              serif: ["'Cormorant Garamond'", "serif"],
+              sans: ["'Lato'", "sans-serif"],
+            },
+            letterSpacing: {
+              tighter: '-0.05em',
+              widest: '0.25em',
+              'mega': '0.5em',
+            },
+            fontSize: {
+              '10xl': '10rem',
+              '12xl': '12rem',
+              'mega': '16rem',
+              'giga': '24rem',
+              'tera': '32rem',
+            },
+            animation: {
+                'fade-in': 'fadeIn 1s ease-out forwards',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+            }
+          },
+        },
+      };
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 20px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* .sidebar-link {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        } */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #D5C5AB, #C6A87C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        ::selection {
+            background: #C6A87C;
+            color: #141414;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-primary transition-colors duration-300 font-sans overflow-hidden h-screen flex flex-col">
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-8 bg-gradient-to-b from-background-dark via-background-dark/80 to-transparent pointer-events-none">
+<div class="flex items-center gap-4 pointer-events-auto">
+</div>
+<nav class="hidden md:flex gap-12 text-[10px] font-bold tracking-[0.3em] uppercase pointer-events-auto">
+
+</nav>
+<button class="md:hidden text-primary pointer-events-auto">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1 flex h-full pt-0">
+<aside class="w-72 hidden md:flex flex-col h-full border-r border-white/[0.03] relative z-30 bg-background-dark/50 backdrop-blur-sm">
+<div class="flex-1 overflow-y-auto py-32 px-0 no-scrollbar relative flex flex-col items-center justify-center">
+<div class="space-y-10 w-full flex flex-col items-center">
+<a class="sidebar-link block font-display text-4xl font-light text-primary leading-none cursor-pointer tracking-wider" href="#year-1146">1146</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-accent-gold text-center leading-loose">
+                        XII<br/>Cen
+                    </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+</div>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1200">1200</a>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1267">1267</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-accent-gold text-center leading-loose">
+                        XIII<br/>Cen
+                    </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+</div>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1300">1300</a>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1359">1359</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-accent-gold text-center leading-loose">
+                        XIV<br/>Cen
+                    </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-accent-gold to-transparent"></div>
+</div>
+</div>
+</div>
+</aside>
+<section class="flex-1 overflow-y-auto relative bg-background-dark scroll-smooth">
+<div class="fixed right-0 top-0 bottom-0 w-2/3 bg-gradient-to-l from-background-dark via-background-dark/95 to-transparent pointer-events-none z-0"></div>
+<div class="fixed left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background-dark to-transparent pointer-events-none z-20 md:hidden"></div>
+<div class="w-full max-w-none relative z-10 pb-40">
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-white/[0.02]" id="year-1146">
+<div class="absolute -left-16 -bottom-16 md:-left-12 text-[16rem] md:text-giga font-display font-bold leading-none text-white/[0.03] select-none z-0 tracking-tighter mix-blend-screen pointer-events-none">
+                    1146
+                </div>
+<div class="absolute -top-12 right-0 md:-right-12 text-[12rem] md:text-giga font-display font-bold text-white/[0.03] select-none z-0 pointer-events-none leading-none tracking-tighter mix-blend-screen text-right">
+                    XII
+                </div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-accent-gold/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-accent-gold/20"></span>
+                        Înființarea Localității Mediaș
+                    </h1>
+<p class="font-serif text-4xl md:text-6xl lg:text-7xl text-primary/80 leading-[1.15] md:leading-[1.1] font-light text-pretty">
+<span class="text-white font-normal italic">Prima mențiune documentară</span> a așezării. Documentele istorice atestă formarea nucleului urban care va deveni unul dintre cele mai importante centre comerciale și culturale ale Transilvaniei medievale.
+                    </p>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-white/[0.02]" id="year-1200">
+<div class="absolute -left-16 -bottom-16 md:-left-12 text-[16rem] md:text-giga font-display font-bold leading-none text-white/[0.03] select-none z-0 tracking-tighter mix-blend-screen pointer-events-none">
+                    1200
+                </div>
+<div class="absolute -top-12 right-0 md:-right-12 text-[12rem] md:text-giga font-display font-bold text-white/[0.03] select-none z-0 pointer-events-none leading-none tracking-tighter mix-blend-screen text-right">
+                    XIII
+                </div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-accent-gold/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-accent-gold/20"></span>
+                        Saxon Colonization &amp; Urban Growth
+                    </h1>
+<p class="font-serif text-4xl md:text-6xl lg:text-7xl text-primary/80 leading-[1.15] md:leading-[1.1] font-light text-pretty">
+<span class="text-white font-normal italic">The systematic arrival</span> of German settlers begins to shape the urban structure, introducing new agricultural techniques, crafts, and the distinct fortified architecture that would define the region.
+                    </p>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-white/[0.02]" id="year-1267">
+<div class="absolute -left-16 -bottom-16 md:-left-12 text-[16rem] md:text-giga font-display font-bold leading-none text-white/[0.03] select-none z-0 tracking-tighter mix-blend-screen pointer-events-none">
+                    1267
+                </div>
+<div class="absolute -top-12 right-0 md:-right-12 text-[12rem] md:text-giga font-display font-bold text-white/[0.03] select-none z-0 pointer-events-none leading-none tracking-tighter mix-blend-screen text-right">
+                    XIII
+                </div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-accent-gold/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-accent-gold/20"></span>
+                        Attestation of Terra Medies
+                    </h1>
+<p class="font-serif text-4xl md:text-6xl lg:text-7xl text-primary/80 leading-[1.15] md:leading-[1.1] font-light text-pretty">
+<span class="text-white font-normal italic">Terra Medies'</span> first documentary attestation appears in a royal diploma issued by King Stephen V of Hungary, granting specific privileges and rights to the settlement's inhabitants.
+                    </p>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-white/[0.02]" id="year-1300">
+<div class="absolute -left-16 -bottom-16 md:-left-12 text-[16rem] md:text-giga font-display font-bold leading-none text-white/[0.03] select-none z-0 tracking-tighter mix-blend-screen pointer-events-none">
+                    1300
+                </div>
+<div class="absolute -top-12 right-0 md:-right-12 text-[12rem] md:text-giga font-display font-bold text-white/[0.03] select-none z-0 pointer-events-none leading-none tracking-tighter mix-blend-screen text-right">
+                    XIV
+                </div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-accent-gold/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-accent-gold/20"></span>
+                        Rise of the Ecclesiastical Center
+                    </h1>
+<p class="font-serif text-4xl md:text-6xl lg:text-7xl text-primary/80 leading-[1.15] md:leading-[1.1] font-light text-pretty">
+<span class="text-white font-normal italic">The settlement expands</span> around the central St. Margaret's Church. This period marks the beginning of significant stone construction and the establishment of powerful craft guilds that would dominate the city's economy.
+                    </p>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-white/[0.02]" id="year-1359">
+<div class="absolute -left-16 -bottom-16 md:-left-12 text-[16rem] md:text-giga font-display font-bold leading-none text-white/[0.03] select-none z-0 tracking-tighter mix-blend-screen pointer-events-none">
+                    1359
+                </div>
+<div class="absolute -top-12 right-0 md:-right-12 text-[12rem] md:text-giga font-display font-bold text-white/[0.03] select-none z-0 pointer-events-none leading-none tracking-tighter mix-blend-screen text-right">
+                    XIV
+                </div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-accent-gold/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-accent-gold/20"></span>
+                        Elevation to Civitas Mediensis
+                    </h1>
+<p class="font-serif text-4xl md:text-6xl lg:text-7xl text-primary/80 leading-[1.15] md:leading-[1.1] font-light text-pretty">
+<span class="text-white font-normal italic">A pivotal moment</span> in history: Mediaș is officially granted the status of "Civitas" (City). This royal decree acknowledges its economic power and grants the right to build full fortification walls and hold annual markets.
+                    </p>
+</div>
+</div>
+</div>
+<div class="py-40 text-center border-t border-white/5 mt-20 flex flex-col items-center justify-center gap-6">
+<div class="w-[1px] h-24 bg-gradient-to-b from-white/10 to-transparent"></div>
+<p class="text-accent-gold/40 text-[0.6rem] tracking-[0.5em] uppercase font-display">End of Archive</p>
+</div>
+</div>
+</section>
+</main>
+<script>
+    const sections = document.querySelectorAll('[id^="year-"]');
+    const navLinks = document.querySelectorAll('aside a.sidebar-link');
+    const observerOptions = {
+        root: document.querySelector('section'),
+        rootMargin: '-50% 0px -50% 0px', 
+        threshold: 0
+    };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                // Reset styles for all links
+                navLinks.forEach(link => {
+                    link.classList.remove('text-4xl', 'text-primary', 'font-normal');
+                    link.classList.add('text-xl', 'text-white/20', 'font-light');
+                });
+                // Activate current link
+                const activeLink = document.querySelector(`aside a[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.remove('text-xl', 'text-white/20', 'font-light');
+                    activeLink.classList.add('text-4xl', 'text-primary', 'font-normal');
+                }
+            }
+        });
+    }, observerOptions);
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+</body></html>

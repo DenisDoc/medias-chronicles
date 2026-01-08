@@ -1,0 +1,115 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.bgYear {
+  position: absolute;
+  left: -4rem;
+  bottom: -4rem;
+  font-family: $font-display;
+  font-size: $text-mega;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  user-select: none;
+  z-index: $z-background;
+  letter-spacing: $tracking-tighter;
+  mix-blend-mode: screen;
+  pointer-events: none;
+
+  @include respond-to('md') {
+    font-size: $text-giga;
+    left: -3rem;
+  }
+}
+
+.bgCentury {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: $text-12xl;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  user-select: none;
+  z-index: $z-background;
+  pointer-events: none;
+  letter-spacing: $tracking-tighter;
+  mix-blend-mode: screen;
+  text-align: right;
+
+  @include respond-to('md') {
+    font-size: $text-giga;
+    right: -3rem;
+  }
+}
+
+.contentWrapper {
+  width: 100%;
+  position: relative;
+  z-index: $z-content;
+}
+
+.content {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 96rem; // 6xl
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.title {
+  font-family: $font-sans;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba($color-accent-gold, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include respond-to('md') {
+    font-size: $text-sm;
+  }
+}
+
+.titleDecoration {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: rgba($color-accent-gold, 0.2);
+}
+
+.info {
+  font-family: $font-serif;
+  font-size: $text-4xl;
+  font-weight: 300;
+  color: rgba($color-primary, 0.8);
+  line-height: 1.15;
+  max-width: 100%;
+
+  @include respond-to('md') {
+    font-size: $text-6xl;
+    line-height: 1.1;
+  }
+
+  @include respond-to('lg') {
+    font-size: $text-7xl;
+  }
+}

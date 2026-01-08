@@ -1,0 +1,54 @@
+.bgYearGlobal {
+  position: fixed;
+  left: -4rem;
+  bottom: 10vh;
+  font-family: "Oswald", sans-serif;
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.6s ease-out;
+}
+@media (min-width: 768px) {
+  .bgYearGlobal {
+    font-size: 24rem;
+    left: -3rem;
+    bottom: 15vh;
+  }
+}
+
+.bgCenturyGlobal {
+  position: fixed;
+  top: 15vh;
+  right: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 12rem;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+  mix-blend-mode: screen;
+  text-align: right;
+  transition: opacity 0.6s ease-out;
+}
+@media (min-width: 768px) {
+  .bgCenturyGlobal {
+    font-size: 24rem;
+    right: -3rem;
+    top: 10vh;
+  }
+}/*# sourceMappingURL=GlobalBackground.module.css.map */

@@ -1,0 +1,129 @@
+.section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.bgYear {
+  position: absolute;
+  left: -4rem;
+  bottom: -4rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 16rem;
+  font-weight: 700;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .bgYear {
+    font-size: 24rem;
+    left: -3rem;
+  }
+}
+
+.bgCentury {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 12rem;
+  line-height: 1;
+  color: white;
+  opacity: 0.03;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 0;
+  pointer-events: none;
+  letter-spacing: -0.05em;
+  mix-blend-mode: screen;
+  text-align: right;
+}
+@media (min-width: 768px) {
+  .bgCentury {
+    font-size: 24rem;
+    right: -3rem;
+  }
+}
+
+.contentWrapper {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.content {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 96rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .content {
+    padding: 0 6rem;
+  }
+}
+
+.title {
+  font-family: "Lato", sans-serif;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(198, 168, 124, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .title {
+    font-size: 0.75rem;
+  }
+}
+
+.titleDecoration {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: rgba(198, 168, 124, 0.2);
+}
+
+.info {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.25rem;
+  font-weight: 300;
+  color: rgba(213, 197, 171, 0.8);
+  line-height: 1.15;
+  max-width: 100%;
+}
+@media (min-width: 768px) {
+  .info {
+    font-size: 3.75rem;
+    line-height: 1.1;
+  }
+}
+@media (min-width: 1024px) {
+  .info {
+    font-size: 4.5rem;
+  }
+}/*# sourceMappingURL=TimelineSection.module.css.map */

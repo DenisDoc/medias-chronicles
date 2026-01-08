@@ -1,0 +1,12 @@
+@import '../../styles/variables';
+
+.odometerNumber {
+  display: inline-flex;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em; // Tighten spacing for large numbers
+}
+
+.staticChar {
+  display: inline-block;
+  white-space: pre; // Preserve spaces
+}

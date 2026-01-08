@@ -1,0 +1,50 @@
+@import './variables';
+@import './mixins';
+
+// Container
+.container {
+  @include container;
+}
+
+// Hidden utilities
+.sr-only {
+  @include visually-hidden;
+}
+
+.hidden-mobile {
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+  }
+}
+
+.hidden-desktop {
+  display: block;
+
+  @include respond-to('md') {
+    display: none;
+  }
+}
+
+// Flex utilities
+.flex-center {
+  @include flex-center;
+}
+
+// Gradient backgrounds
+.gradient-vertical {
+  @include gradient-overlay(
+    bottom,
+    $color-background-dark,
+    rgba($color-background-dark, 0)
+  );
+}
+
+.gradient-horizontal {
+  @include gradient-overlay(
+    right,
+    $color-background-dark,
+    rgba($color-background-dark, 0)
+  );
+}

@@ -1,0 +1,57 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: linear-gradient(to bottom, #0f0f0f, rgba(15, 15, 15, 0.8), transparent);
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .header {
+    padding: 2rem;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: auto;
+}
+
+.nav {
+  display: none;
+  gap: 3rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  pointer-events: auto;
+}
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+}
+
+.mobileMenu {
+  color: #D5C5AB;
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .mobileMenu {
+    display: none;
+  }
+}
+.mobileMenu span {
+  font-size: 1.5rem;
+}/*# sourceMappingURL=Header.module.css.map */

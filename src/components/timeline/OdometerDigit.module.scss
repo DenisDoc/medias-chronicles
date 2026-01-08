@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+
+.digitWrapper {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  width: 0.65em; // Monospace width for digits
+  vertical-align: baseline;
+}
+
+.digit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-variant-numeric: tabular-nums; // Ensure monospace digits
+  will-change: transform, opacity;
+  text-align: center;
+}
+
+.digitOld {
+  opacity: 1;
+}
+
+.digitNew {
+  opacity: 0;
+}

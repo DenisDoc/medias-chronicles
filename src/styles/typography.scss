@@ -1,0 +1,30 @@
+@import './variables';
+
+// Font family classes
+.font-display {
+  font-family: $font-display;
+}
+
+.font-serif {
+  font-family: $font-serif;
+}
+
+.font-sans {
+  font-family: $font-sans;
+}
+
+// Text sizes with responsive scaling
+.text-responsive-hero {
+  font-size: clamp(2.25rem, 8vw, $text-7xl);
+  line-height: 1.1;
+}
+
+.text-responsive-mega {
+  font-size: clamp($text-mega, 20vw, $text-giga);
+  line-height: 1;
+}
+
+.text-responsive-display {
+  font-size: clamp($text-4xl, 5vw, $text-6xl);
+  line-height: 1.15;
+}

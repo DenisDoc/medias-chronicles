@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+.sidebar {
+  width: $sidebar-width;
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  position: relative;
+  z-index: $z-sidebar;
+  background-color: rgba($color-background-dark, 0.5);
+  backdrop-filter: blur(8px);
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+/* 🔹 NEW: Lenis scroll wrapper */
+.wrapper {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto; // ✅ scrolling happens here
+  position: relative;
+
+  /* hide scrollbar */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 🔹 UPDATED: Lenis scroll content */
+.content {
+  min-height: max-content; // ✅ required for Lenis
+  padding: 8rem 0;
+  position: relative;
+}
+
+/* unchanged */
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.link {
+  display: block;
+  font-family: $font-display;
+  font-size: $text-xl;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  cursor: pointer;
+  letter-spacing: $tracking-widest;
+  text-align: center;
+  transition: $transition-smooth;
+
+  &:hover {
+    color: rgba($color-primary, 0.6) !important;
+  }
+
+  /* Active state (applied via JavaScript) */
+  &.active {
+    font-size: $text-4xl;
+    color: $color-primary;
+    font-weight: 400;
+  }
+}

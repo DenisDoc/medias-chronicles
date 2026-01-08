@@ -1,0 +1,55 @@
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 6rem;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hidden-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+.hidden-desktop {
+  display: block;
+}
+@media (min-width: 768px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gradient-vertical {
+  background: linear-gradient(to bottom, #0f0f0f, rgba(15, 15, 15, 0));
+}
+
+.gradient-horizontal {
+  background: linear-gradient(to right, #0f0f0f, rgba(15, 15, 15, 0));
+}/*# sourceMappingURL=utilities.css.map */

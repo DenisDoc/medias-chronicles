@@ -1,0 +1,63 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: linear-gradient(
+    to bottom,
+    $color-background-dark,
+    rgba($color-background-dark, 0.8),
+    transparent
+  );
+  pointer-events: none;
+
+  @include respond-to('md') {
+    padding: 2rem;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: auto;
+}
+
+.nav {
+  display: none;
+  gap: 3rem;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  pointer-events: auto;
+
+  @include respond-to('md') {
+    display: flex;
+  }
+}
+
+.mobileMenu {
+  color: $color-primary;
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+
+  @include respond-to('md') {
+    display: none;
+  }
+
+  span {
+    font-size: 1.5rem;
+  }
+}

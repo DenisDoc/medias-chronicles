@@ -1,0 +1,35 @@
+.divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+.divider:hover {
+  opacity: 1;
+}
+
+.line {
+  width: 1px;
+  height: 2rem;
+  background: linear-gradient(to bottom, transparent, #C6A87C, transparent);
+  transition: box-shadow 0.5s ease, filter 0.5s ease;
+}
+
+.label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: #C6A87C;
+  text-align: center;
+  line-height: 1.8;
+  transition: text-shadow 0.5s ease;
+}/*# sourceMappingURL=CenturyDivider.module.css.map */

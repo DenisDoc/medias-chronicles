@@ -1,0 +1,10 @@
+.odometerNumber {
+  display: inline-flex;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.staticChar {
+  display: inline-block;
+  white-space: pre;
+}/*# sourceMappingURL=OdometerNumber.module.css.map */
