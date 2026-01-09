@@ -6,9 +6,10 @@ interface SidebarLinkProps {
   targetId: string;
   year: string;
   isFirstOfCentury: boolean;
+  onNavigate?: () => void;
 }
 
-export default function SidebarLink({ targetId, year, isFirstOfCentury }: SidebarLinkProps) {
+export default function SidebarLink({ targetId, year, isFirstOfCentury, onNavigate }: SidebarLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
@@ -36,11 +37,21 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury }: Sideba
         duration: 1.5,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
       });
+      
+      // Close menu after scroll completes (1.5s + small delay for safety)
+      if (onNavigate) {
+        setTimeout(onNavigate, 1000);
+      }
     } else {
       scrollContainer.scrollTo({
         top: offset,
         behavior: 'smooth'
       });
+      
+      // Close menu after scroll (assume ~1s for smooth scroll)
+      if (onNavigate) {
+        setTimeout(onNavigate, 1000);
+      }
     }
   };
 

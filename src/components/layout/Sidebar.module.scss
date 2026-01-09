@@ -18,23 +18,11 @@
 
   /* Mobile menu styles */
   @media (max-width: 767px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     height: 100vh;
-    max-height: none;
     border-right: none;
-    border-bottom: none;
-    transform: translateY(-100%);
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.320, 1);
     display: flex;
     flex-direction: column;
-
-    &.open {
-      transform: translateY(0);
-    }
   }
 }
 

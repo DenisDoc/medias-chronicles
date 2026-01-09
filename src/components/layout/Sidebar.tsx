@@ -71,6 +71,7 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
                     targetId={item.id}
                     year={item.year}
                     isFirstOfCentury={isFirstOfCentury}
+                    onNavigate={onClose}
                   />
                 );
               })}
