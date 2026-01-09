@@ -84,7 +84,7 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
     <a
       href={`/?year=${year}`}
       className={`${styles.link} sidebar-link`}
-      data-year={targetId}
+      data-year={`year-${year}`}
       data-first={isFirstOfCentury}
       onClick={handleClick}
     >

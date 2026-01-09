@@ -1,4 +1,5 @@
 - for MOBILE add year and age around the title section
-- remove left shadow for mobile 
+- remove left shadow for mobile
 - add sources 
 - add feedback
+- track the search params better in useYearNavigation in order to enable the back and forward buttons scroll/navigation functionality 

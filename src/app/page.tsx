@@ -52,6 +52,8 @@ function TimelineContent() {
     return <LoadingSpinner />;
   }
 
+  console.log(events)
+
   return (
     <>
       <InitialScrollHandler events={events} />
@@ -59,10 +61,6 @@ function TimelineContent() {
         <section className={`${styles.timeline} timeline`}>
           {/* Global background year/century (sticky) */}
           <GlobalBackground />
-
-          {/* Gradient overlays */}
-          <div className={styles.gradientRight}></div>
-          <div className={styles.gradientLeft}></div>
 
           {/* Timeline content with animations */}
           <div className={styles.timelineContent}>

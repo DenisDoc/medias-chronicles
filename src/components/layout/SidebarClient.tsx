@@ -94,9 +94,11 @@ export default function SidebarClient({ children }: SidebarClientProps) {
           const year = entry.target.getAttribute('data-year');
           const century = entry.target.getAttribute('data-century');
 
-          // Find active link using data attribute
+          // Find active link using the YEAR, not the full event ID
+          // For "year-1146-2", we want to find the link for "year-1146"
+          const yearId = `year-${year}`;
           const activeLink = document.querySelector(
-            `.sidebar-link[data-year="${id}"]`
+            `.sidebar-link[data-year="${yearId}"]`
           ) as HTMLElement | null;
 
           if (prefersReducedMotion) {

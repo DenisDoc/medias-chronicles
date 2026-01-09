@@ -8,6 +8,12 @@
   position: relative;
   overflow: hidden;
   padding: 5rem 0;
+
+  // Additional spacing for non-first events of the same date
+  &.additionalEvent {
+    min-height: auto;
+    margin-top: 2rem;
+  }
 }
 
 .contentWrapper {
@@ -25,6 +31,10 @@
   max-width: 96rem; // 6xl
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.yearDisplay {
+  margin-bottom: 3rem;
 }
 
 .title {

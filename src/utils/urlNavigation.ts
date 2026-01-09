@@ -26,6 +26,7 @@ export function isValidYear(
 /**
  * Find the nearest valid year to a target year
  * Used when user visits an invalid year URL
+ * Prioritizes the first event of each date
  */
 export function findNearestYear(
   targetYear: string,
@@ -41,7 +42,10 @@ export function findNearestYear(
   let nearest = events[0];
   let minDiff = Infinity;
 
+  // Only consider first events of each date to avoid duplicates
   events.forEach(event => {
+    if (!event.isFirstOfDate) return;
+
     const eventYear = parseInt(event.date.split('-')[0], 10);
     const diff = Math.abs(eventYear - target);
     if (diff < minDiff) {
@@ -61,8 +65,13 @@ export function getEventIdFromYear(year: string): string {
 }
 
 /**
- * Extract year from event ID (year-XXXX -> XXXX)
+ * Extract year from event ID
+ * Handles both formats: "year-XXXX" and "year-XXXX-N" (for multiple events per year)
+ * Returns: "XXXX"
  */
 export function getYearFromEventId(id: string): string {
-  return id.replace('year-', '');
+  // Remove "year-" prefix and any suffix like "-1", "-2"
+  const withoutPrefix = id.replace('year-', '');
+  // Extract just the year part (before any dash)
+  return withoutPrefix.split('-')[0];
 }

@@ -1,5 +1,5 @@
 import timelineData from '@/data/timeline.json';
-import { TimelineEvent, ProcessedTimelineEvent, CenturyGroup, SidebarNavItem } from '@/types/timeline';
+import { TimelineEntry, ProcessedTimelineEvent, CenturyGroup, SidebarNavItem } from '@/types/timeline';
 
 /**
  * Generate stable ID from date for anchor links
@@ -11,15 +11,43 @@ export function generateEventId(date: string): string {
 }
 
 /**
- * Process raw timeline data
- * Adds id and hasTitle flags to each event
+ * Process timeline data from JSON into flattened ProcessedTimelineEvent array
+ * Each TimelineEntry with multiple events in data[] is expanded into separate ProcessedTimelineEvent items
  */
 export function processTimelineData(): ProcessedTimelineEvent[] {
-  return (timelineData as TimelineEvent[]).map(event => ({
-    ...event,
-    id: generateEventId(event.date),
-    hasTitle: event.title.trim() !== ''
-  }));
+  const entries = timelineData as TimelineEntry[];
+  const processedEvents: ProcessedTimelineEvent[] = [];
+
+  entries.forEach((entry) => {
+    // Each entry can have multiple events in its data array
+    entry.data.forEach((event, index) => {
+      // Generate unique ID for each event
+      // If it's the only event for this date: "year-1146"
+      // If multiple events for same date: "year-1146-1", "year-1146-2", etc.
+      const baseId = generateEventId(entry.date);
+      const id = entry.data.length > 1 ? `${baseId}-${index + 1}` : baseId;
+
+      processedEvents.push({
+        // Inherited from parent entry
+        date: entry.date,
+        century: entry.century,
+
+        // From the Event object
+        title: event.title,
+        presentation: event.presentation,
+        sources: event.sources,
+        context: event.context,
+
+        // Metadata for rendering
+        id,
+        hasTitle: event.title.trim() !== '',
+        isFirstOfDate: index === 0,
+        eventIndex: index,
+      });
+    });
+  });
+
+  return processedEvents;
 }
 
 /**
@@ -41,17 +69,19 @@ export function groupEventsByCentury(events: ProcessedTimelineEvent[]): CenturyG
 }
 
 /**
- * Generate sidebar navigation items
- * Logic: Show all events, insert century dividers when century changes
- * The first event of each century will be styled larger via CSS/className
+ * Generate sidebar navigation items with century dividers
+ * Only creates ONE link per year, even if multiple events exist for that year
  */
 export function generateSidebarNavigation(
   events: ProcessedTimelineEvent[]
 ): SidebarNavItem[] {
   const items: SidebarNavItem[] = [];
   let currentCentury: string | null = null;
+  const seenYears = new Set<string>();
 
   events.forEach((event) => {
+    const year = event.date.split('-')[0];
+
     // Insert century divider when century changes (including before first event)
     if (event.century !== currentCentury) {
       items.push({
@@ -64,13 +94,15 @@ export function generateSidebarNavigation(
       currentCentury = event.century;
     }
 
-    // Add event link
-    const year = event.date.split('-')[0];
-    items.push({
-      id: event.id,
-      year,
-      isCenturyDivider: false
-    });
+    // Only add link for the first event of each year
+    if (!seenYears.has(year)) {
+      seenYears.add(year);
+      items.push({
+        id: event.id,
+        year,
+        isCenturyDivider: false
+      });
+    }
   });
 
   return items;
@@ -97,11 +129,21 @@ export function getTimelineData(): ProcessedTimelineEvent[] {
 
 /**
  * Find an event by year
+ * Returns the FIRST event for that year if multiple exist
  */
 export function findEventByYear(
   year: string,
   events: ProcessedTimelineEvent[]
 ): ProcessedTimelineEvent | null {
+  // First, try to find the first event of that date
+  const firstEvent = events.find(event => {
+    const eventYear = event.date.split('-')[0];
+    return eventYear === year && event.isFirstOfDate;
+  });
+
+  if (firstEvent) return firstEvent;
+
+  // Fallback: return any event matching the year
   return events.find(event => {
     const eventYear = event.date.split('-')[0];
     return eventYear === year;

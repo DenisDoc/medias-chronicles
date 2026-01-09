@@ -18,30 +18,6 @@
 - Natural easing curve (not linear)
 - No jarring stops or starts
 
----
-
-## 2. Odometer Effect (Year Numbers)
-
-### Test Steps:
-- [ ] Scroll from year 1146 → 1147 (only last digit should flip)
-- [ ] Scroll from year 1159 → 1160 (last two digits should flip)
-- [ ] Scroll from year 1199 → 1200 (last three digits should flip)
-- [ ] Scroll from year 1146 → 1283 (all changing digits should flip)
-- [ ] Watch the flip animation - should be smooth vertical slide
-
-### Expected Behavior:
-- Only digits that change should animate
-- Smooth vertical flip (old slides up, new slides in from bottom)
-- Duration: 0.6s with power2.inOut easing
-- Background year should change when section is centered in viewport
-
-### Key Transitions to Test:
-- 1146 → 1147 (1 digit changes)
-- 1161 → 1162 (1 digit changes)
-- 1267 → 1283 (2 digits change)
-- 1289 → 1320 (3 digits change)
-
----
 
 ## 3. Sidebar Animations
 
@@ -133,7 +109,6 @@
 - Lenis smooth scrolling should be disabled (wheelMultiplier/touchMultiplier still apply)
 - GSAP animations should be skipped
 - Sidebar should use simple class toggles instead of GSAP
-- Odometer digits should instantly swap without animation
 - Content should still be fully visible and functional
 
 ---
@@ -211,7 +186,6 @@
 ### Potential Issues to Check:
 - [ ] ScrollTrigger conflicts with Lenis (should be synced correctly)
 - [ ] IntersectionObserver targeting correct scroll container
-- [ ] Odometer animation triggers at correct viewport position
 - [ ] Multiple GSAP instances don't conflict
 - [ ] Memory leaks from ScrollTrigger instances (should clean up on unmount)
 - [ ] Century highlighting synchronizes with sidebar active state
@@ -241,7 +215,6 @@
 
 ✅ **Must Pass All:**
 1. Smooth scrolling feels premium and natural
-2. Odometer effect only animates changing digits
 3. Sidebar morphs smoothly between active states
 4. Century dividers glow when active
 5. Content reveals in staggered sequence
@@ -269,11 +242,6 @@ ScrollTrigger.getAll(); // See all active triggers
 console.log(window.lenis); // Should be undefined (it's in component scope)
 // Look for Lenis errors in console
 ```
-
-### If odometer doesn't animate:
-- Check if data-year attributes are present on sections
-- Verify OdometerNumber is receiving value changes
-- Check browser console for React errors
 
 ### Common console commands:
 ```javascript

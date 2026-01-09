@@ -26,42 +26,6 @@
   }
 }
 
-.gradientRight {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 66.666%;
-  background: linear-gradient(
-    to left,
-    $color-background-dark,
-    rgba($color-background-dark, 0.95),
-    transparent
-  );
-  pointer-events: none;
-  z-index: $z-background;
-}
-
-.gradientLeft {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 8rem;
-  background: linear-gradient(
-    to right,
-    $color-background-dark,
-    transparent
-  );
-  pointer-events: none;
-  z-index: $z-gradient;
-  display: block;
-
-  @include respond-to('md') {
-    display: none;
-  }
-}
-
 .timelineContent {
   width: 100%;
   max-width: 100%;

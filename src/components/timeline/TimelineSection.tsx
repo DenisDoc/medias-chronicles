@@ -12,20 +12,21 @@ export default function TimelineSection({ event }: TimelineSectionProps) {
   return (
     <section
       id={event.id}
-      className={`${styles.section} timeline-section`}
+      className={`${styles.section} ${!event.isFirstOfDate ? styles.additionalEvent : ''} timeline-section`}
       data-year={year}
       data-century={event.century}
     >
       {/* Content area */}
       <div className={`${styles.contentWrapper} timeline-content`}>
         <div className={styles.content}>
+
           {event.hasTitle && (
             <h1 className={`${styles.title} title`} id={`title-${event.id}`}>
               <span className={`${styles.titleDecoration} title-decoration`}></span>
               {event.title}
             </h1>
           )}
-          <p className={`${styles.info} info`} dangerouslySetInnerHTML={{ __html: formatInfo(event.info) }}></p>
+          <p className={`${styles.info} info`} dangerouslySetInnerHTML={{ __html: formatInfo(event.presentation) }}></p>
         </div>
       </div>
     </section>
