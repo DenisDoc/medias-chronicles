@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import styles from './Sidebar.module.scss';
 
 interface SidebarLinkProps {
@@ -10,8 +11,19 @@ interface SidebarLinkProps {
 }
 
 export default function SidebarLink({ targetId, year, isFirstOfCentury, onNavigate }: SidebarLinkProps) {
+  const router = useRouter();
+
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+
+    // Update URL first (adds to browser history)
+    router.push(`/?year=${year}`);
+
+    // Set navigation flag to prevent IntersectionObserver from updating URL
+    const isNavigatingRef = (window as any).__isNavigating;
+    if (isNavigatingRef) {
+      isNavigatingRef.current = true;
+    }
 
     const target = document.getElementById(targetId);
     if (!target) return;
@@ -35,9 +47,15 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
     if (lenis) {
       lenis.scrollTo(offset, {
         duration: 1.5,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        onComplete: () => {
+          // Clear navigation flag when scroll completes
+          if (isNavigatingRef) {
+            isNavigatingRef.current = false;
+          }
+        }
       });
-      
+
       // Close menu after scroll completes (1.5s + small delay for safety)
       if (onNavigate) {
         setTimeout(onNavigate, 1000);
@@ -47,7 +65,14 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
         top: offset,
         behavior: 'smooth'
       });
-      
+
+      // Clear navigation flag after native scroll
+      if (isNavigatingRef) {
+        setTimeout(() => {
+          isNavigatingRef.current = false;
+        }, 1500);
+      }
+
       // Close menu after scroll (assume ~1s for smooth scroll)
       if (onNavigate) {
         setTimeout(onNavigate, 1000);
@@ -57,7 +82,7 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
 
   return (
     <a
-      href={`#${targetId}`}
+      href={`/?year=${year}`}
       className={`${styles.link} sidebar-link`}
       data-year={targetId}
       data-first={isFirstOfCentury}

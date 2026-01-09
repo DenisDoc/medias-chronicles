@@ -18,7 +18,7 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    if (!svgRef.current) return;
+    if (!svgRef.current) return undefined;
 
     // If the header's mobile hamburger button is visible, skip the stroke animation.
     // We select the menu button by its aria-label which is stable across the codebase.
@@ -30,7 +30,7 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
         (menuBtn as HTMLElement).offsetParent !== null
     );
 
-    if (hamburgerVisible) return; // do not run stroke-draw when hamburger is visible (mobile)
+    if (hamburgerVisible) return undefined; // do not run stroke-draw when hamburger is visible (mobile)
 
     const svg = svgRef.current;
     const stroked = svg.querySelectorAll("path, line, circle, rect");
@@ -43,19 +43,22 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
     const tl = gsap.timeline({ defaults: { ease: EASE } });
 
     stroked.forEach((el, i) => {
+      const svgEl = el as SVGGeometryElement;
       // @ts-ignore - getTotalLength exists on SVG geometry elements
-      const length = (el as any).getTotalLength ? (el as any).getTotalLength() : 0;
+      const length = svgEl.getTotalLength ? svgEl.getTotalLength() : 0;
       if (length > 0) {
-        el.style.strokeDasharray = String(length);
+        (svgEl as any).style.strokeDasharray = String(length);
         // start from -length so the draw appears from path end -> start (reverse)
-        el.style.strokeDashoffset = String(-length);
-        el.style.visibility = "visible";
+        (svgEl as any).style.strokeDashoffset = String(-length);
+        (svgEl as any).style.visibility = "visible";
 
-        tl.to(el, { strokeDashoffset: 0, duration: DURATION }, i * STAGGER);
+        tl.to(svgEl, { strokeDashoffset: 0, duration: DURATION }, i * STAGGER);
       }
     });
 
-    return () => tl.kill();
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   return (

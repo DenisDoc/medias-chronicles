@@ -1,15 +1,41 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import gsap from 'gsap';
 import Lenis from 'lenis';
+import { getYearFromEventId } from '@/utils/urlNavigation';
 
 interface SidebarClientProps {
   children: React.ReactNode;
 }
 
 export default function SidebarClient({ children }: SidebarClientProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const rafIdRef = useRef<number | null>(null);
+  const updateTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isNavigatingRef = useRef(false);
+
+  // Debounced URL update function
+  const updateURL = useCallback((year: string) => {
+    if (updateTimeoutRef.current) {
+      clearTimeout(updateTimeoutRef.current);
+    }
+
+    updateTimeoutRef.current = setTimeout(() => {
+      const currentYear = searchParams.get('year');
+      // Only update if year is different and we're not programmatically navigating
+      if (currentYear !== year && !isNavigatingRef.current) {
+        router.replace(`/?year=${year}`, { scroll: false });
+      }
+    }, 300); // 300ms debounce
+  }, [router, searchParams]);
+
+  // Make isNavigatingRef available to child components via window
+  useEffect(() => {
+    (window as any).__isNavigating = isNavigatingRef;
+  }, []);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -68,8 +94,9 @@ export default function SidebarClient({ children }: SidebarClientProps) {
           const year = entry.target.getAttribute('data-year');
           const century = entry.target.getAttribute('data-century');
 
+          // Find active link using data attribute
           const activeLink = document.querySelector(
-            `.sidebar-link[href="#${id}"]`
+            `.sidebar-link[data-year="${id}"]`
           ) as HTMLElement | null;
 
           if (prefersReducedMotion) {
@@ -126,6 +153,13 @@ export default function SidebarClient({ children }: SidebarClientProps) {
               detail: { year, century, sectionId: id },
             })
           );
+
+          // ✅ UPDATE URL LAST - after all UI updates
+          // Only update if not programmatically navigating
+          if (id && !isNavigatingRef.current) {
+            const yearFromId = getYearFromEventId(id);
+            updateURL(yearFromId);
+          }
         });
       },
       {

@@ -94,3 +94,23 @@ export function isFirstEventOfCentury(
 export function getTimelineData(): ProcessedTimelineEvent[] {
   return processTimelineData();
 }
+
+/**
+ * Find an event by year
+ */
+export function findEventByYear(
+  year: string,
+  events: ProcessedTimelineEvent[]
+): ProcessedTimelineEvent | null {
+  return events.find(event => {
+    const eventYear = event.date.split('-')[0];
+    return eventYear === year;
+  }) || null;
+}
+
+/**
+ * Get all available years in the timeline
+ */
+export function getAvailableYears(events: ProcessedTimelineEvent[]): string[] {
+  return events.map(event => event.date.split('-')[0]);
+}
