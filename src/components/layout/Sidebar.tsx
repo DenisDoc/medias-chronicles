@@ -20,10 +20,27 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
   useEffect(() => {
     if (!svgRef.current) return;
 
+    // If the header's mobile hamburger button is visible, skip the stroke animation.
+    // We select the menu button by its aria-label which is stable across the codebase.
+    const menuBtn = document.querySelector('button[aria-label="Menu"]');
+    const hamburgerVisible = Boolean(
+      menuBtn &&
+        window.getComputedStyle(menuBtn).display !== "none" &&
+        // offsetParent null check filters out visibility: hidden / display: none
+        (menuBtn as HTMLElement).offsetParent !== null
+    );
+
+    if (hamburgerVisible) return; // do not run stroke-draw when hamburger is visible (mobile)
+
     const svg = svgRef.current;
     const stroked = svg.querySelectorAll("path, line, circle, rect");
 
-    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+    // animation settings (kept consistent with project):
+    const DURATION = 0.7;
+    const STAGGER = 0.04;
+    const EASE = "power2.out";
+
+    const tl = gsap.timeline({ defaults: { ease: EASE } });
 
     stroked.forEach((el, i) => {
       // @ts-ignore - getTotalLength exists on SVG geometry elements
@@ -34,7 +51,7 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
         el.style.strokeDashoffset = String(-length);
         el.style.visibility = "visible";
 
-        tl.to(el, { strokeDashoffset: 0, duration: 1.2 }, i * 0.06);
+        tl.to(el, { strokeDashoffset: 0, duration: DURATION }, i * STAGGER);
       }
     });
 

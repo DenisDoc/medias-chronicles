@@ -1,0 +1,4 @@
+- for MOBILE add year and age around the title section
+- remove left shadow for mobile 
+- add sources 
+- add feedback
