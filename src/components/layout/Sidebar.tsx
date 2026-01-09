@@ -1,10 +1,12 @@
-'use client';
+"use client";
 
-import { SidebarNavItem } from '@/types/timeline';
-import CenturyDivider from '../timeline/CenturyDivider';
-import SidebarClient from './SidebarClient';
-import SidebarLink from './SidebarLink';
-import styles from './Sidebar.module.scss';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { SidebarNavItem } from "@/types/timeline";
+import CenturyDivider from "../timeline/CenturyDivider";
+import SidebarClient from "./SidebarClient";
+import SidebarLink from "./SidebarLink";
+import styles from "./Sidebar.module.scss";
 
 interface SidebarProps {
   navItems: SidebarNavItem[];
@@ -13,10 +15,43 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ navItems, menuOpen = false, onClose }: SidebarProps) {
+  const svgRef = useRef<SVGSVGElement | null>(null);
+
+  useEffect(() => {
+    if (!svgRef.current) return;
+
+    const svg = svgRef.current;
+    const stroked = svg.querySelectorAll("path, line, circle, rect");
+
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    stroked.forEach((el, i) => {
+      // @ts-ignore - getTotalLength exists on SVG geometry elements
+      const length = (el as any).getTotalLength ? (el as any).getTotalLength() : 0;
+      if (length > 0) {
+        el.style.strokeDasharray = String(length);
+        // start from -length so the draw appears from path end -> start (reverse)
+        el.style.strokeDashoffset = String(-length);
+        el.style.visibility = "visible";
+
+        tl.to(el, { strokeDashoffset: 0, duration: 1.2 }, i * 0.06);
+      }
+    });
+
+    return () => tl.kill();
+  }, []);
+
   return (
-    <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ''} sidebar`}>
+    <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ""} sidebar`}>
       {/* SVG Background */}
-      <svg className={styles.bgSvg} fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <svg
+        ref={svgRef}
+        className={styles.bgSvg}
+        fill="none"
+        viewBox="0 0 500 1200"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="xMidYMid slice"
+      >
         <path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" strokeLinejoin="round" strokeWidth="1.5"></path>
         <path d="M150,900 L350,900" stroke="#D5C5AB" strokeDasharray="10 10" strokeWidth="0.5"></path>
         <path d="M150,700 L350,700" stroke="#D5C5AB" strokeDasharray="10 10" strokeWidth="0.5"></path>
