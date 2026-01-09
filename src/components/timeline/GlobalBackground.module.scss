@@ -1,51 +1,22 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.bgYearGlobal {
+.bgSvgContainer {
   position: fixed;
-  left: -4rem;
-  bottom: 10vh;
-  font-family: $font-display;
-  font-size: $text-mega;
-  font-weight: 700;
-  line-height: 1;
-  color: white;
-  opacity: 0.03;
-  user-select: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: $z-background;
-  letter-spacing: $tracking-tighter;
-  mix-blend-mode: screen;
   pointer-events: none;
-  transition: opacity 0.6s ease-out;
-
-  @include respond-to('md') {
-    font-size: $text-giga;
-    left: -3rem;
-    bottom: 15vh;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.bgCenturyGlobal {
-  position: fixed;
-  top: 15vh;
-  right: 0;
-  font-family: $font-display;
-  font-weight: 700;
-  font-size: $text-12xl;
-  line-height: 1;
-  color: white;
-  opacity: 0.03;
-  user-select: none;
-  z-index: $z-background;
-  pointer-events: none;
-  letter-spacing: $tracking-tighter;
-  mix-blend-mode: screen;
-  text-align: right;
-  transition: opacity 0.6s ease-out;
-
-  @include respond-to('md') {
-    font-size: $text-giga;
-    right: -3rem;
-    top: 10vh;
-  }
+.bgSvg {
+  width: auto;
+  height: 100%;
+  display: block;
+  opacity: 0.1;
 }

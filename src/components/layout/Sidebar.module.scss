@@ -16,12 +16,26 @@
   }
 }
 
+.bgSvg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
 /* 🔹 NEW: Lenis scroll wrapper */
 .wrapper {
   flex: 1;
   height: 100%;
   overflow-y: auto; // ✅ scrolling happens here
   position: relative;
+  z-index: 1;
 
   /* hide scrollbar */
   &::-webkit-scrollbar {

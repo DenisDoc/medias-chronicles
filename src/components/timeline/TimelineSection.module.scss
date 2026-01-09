@@ -10,51 +10,6 @@
   padding: 5rem 0;
 }
 
-.bgYear {
-  position: absolute;
-  left: -4rem;
-  bottom: -4rem;
-  font-family: $font-display;
-  font-size: $text-mega;
-  font-weight: 700;
-  line-height: 1;
-  color: white;
-  opacity: 0.03;
-  user-select: none;
-  z-index: $z-background;
-  letter-spacing: $tracking-tighter;
-  mix-blend-mode: screen;
-  pointer-events: none;
-
-  @include respond-to('md') {
-    font-size: $text-giga;
-    left: -3rem;
-  }
-}
-
-.bgCentury {
-  position: absolute;
-  top: -3rem;
-  right: 0;
-  font-family: $font-display;
-  font-weight: 700;
-  font-size: $text-12xl;
-  line-height: 1;
-  color: white;
-  opacity: 0.03;
-  user-select: none;
-  z-index: $z-background;
-  pointer-events: none;
-  letter-spacing: $tracking-tighter;
-  mix-blend-mode: screen;
-  text-align: right;
-
-  @include respond-to('md') {
-    font-size: $text-giga;
-    right: -3rem;
-  }
-}
-
 .contentWrapper {
   width: 100%;
   position: relative;

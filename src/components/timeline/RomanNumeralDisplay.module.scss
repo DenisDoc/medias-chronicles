@@ -1,0 +1,44 @@
+@import '../../styles/variables';
+
+.romanDisplay {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  contain: layout style paint;
+  will-change: auto;
+}
+
+.staticSpace {
+  display: inline-block;
+  width: 0.3em;
+  flex-shrink: 0;
+}
+
+.romanSlot {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 1em;
+  will-change: transform;
+  transform: translateZ(0);
+  contain: layout style paint;
+}
+
+.romanStack {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+  transform: translateZ(0);
+  /* This stack holds exactly two rows: [previous, current] */
+  height: 2em; /* two items, each 1em tall */
+}
+
+.romanItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+  flex-shrink: 0;
+  font-variant-numeric: normal;
+  letter-spacing: inherit;
+}
