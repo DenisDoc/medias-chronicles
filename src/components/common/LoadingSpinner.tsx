@@ -39,7 +39,7 @@ export default function LoadingSpinner() {
       <svg
         ref={svgRef}
         className={styles.spinner}
-        viewBox="0 200 500 800"
+        viewBox="0 160 500 600"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid meet"
       >
