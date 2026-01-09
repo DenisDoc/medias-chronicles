@@ -1,3 +1,5 @@
+'use client';
+
 import { SidebarNavItem } from '@/types/timeline';
 import CenturyDivider from '../timeline/CenturyDivider';
 import SidebarClient from './SidebarClient';
@@ -6,11 +8,13 @@ import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
   navItems: SidebarNavItem[];
+  menuOpen?: boolean;
+  onClose?: () => void;
 }
 
-export default function Sidebar({ navItems }: SidebarProps) {
+export default function Sidebar({ navItems, menuOpen = false, onClose }: SidebarProps) {
   return (
-    <aside className={`${styles.sidebar} sidebar`}>
+    <aside className={`${styles.sidebar} ${menuOpen ? styles.open : ''} sidebar`}>
       {/* SVG Background */}
       <svg className={styles.bgSvg} fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
         <path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" strokeLinejoin="round" strokeWidth="1.5"></path>

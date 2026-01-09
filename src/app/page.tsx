@@ -1,6 +1,5 @@
 import { getTimelineData, generateSidebarNavigation } from '@/utils/timelineData';
-import Header from '@/components/layout/Header';
-import Sidebar from '@/components/layout/Sidebar';
+import LayoutWrapper from '@/components/layout/LayoutWrapper';
 import TimelineSection from '@/components/timeline/TimelineSection';
 import EndMarker from '@/components/timeline/EndMarker';
 import TimelineAnimations from '@/components/timeline/TimelineAnimations';
@@ -13,11 +12,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <Header />
-
-      <main className={styles.main}>
-        <Sidebar navItems={navItems} />
-
+      <LayoutWrapper navItems={navItems}>
         <section className={`${styles.timeline} timeline`}>
           {/* Global background year/century (sticky) */}
           <GlobalBackground />
@@ -36,7 +31,7 @@ export default function Home() {
             </TimelineAnimations>
           </div>
         </section>
-      </main>
+      </LayoutWrapper>
     </div>
   );
 }

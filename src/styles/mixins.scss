@@ -19,6 +19,25 @@
   }
 }
 
+// Responsive breakpoints (max-width)
+@mixin respond-to-max($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm - 1px) { @content; }
+  }
+  @else if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md - 1px) { @content; }
+  }
+  @else if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg - 1px) { @content; }
+  }
+  @else if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl - 1px) { @content; }
+  }
+  @else if $breakpoint == '2xl' {
+    @media (max-width: $breakpoint-2xl - 1px) { @content; }
+  }
+}
+
 // Text gradient
 @mixin text-gradient($color1, $color2) {
   background: linear-gradient(to right, $color1, $color2);
