@@ -133,6 +133,30 @@ export default function TimelineAnimations({ children }: TimelineAnimationsProps
       }
     });
 
+    // Sources and Context Section Animation
+    gsap.utils.toArray('.sources-context-section').forEach((section: any) => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+          scroller: scrollContainer
+        }
+      })
+      .fromTo(section,
+        {
+          opacity: 0,
+          y: 30
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: 'power3.out'
+        }
+      );
+    });
+
     // Enhanced sidebar hover
     const sidebarLinks = gsap.utils.toArray('.sidebar-link');
     sidebarLinks.forEach((link: any) => {

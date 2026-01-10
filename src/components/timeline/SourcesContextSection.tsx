@@ -13,7 +13,7 @@ export default function SourcesContextSection({ sources, context }: SourcesConte
   const hasBothSections = hasContext && hasSources;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} sources-context-section`}>
       <div className={hasBothSections ? styles.grid : styles.gridSingle}>
         {/* Vertical divider bar - only show if both sections have data */}
         {hasBothSections && <div className={styles.divider}></div>}

@@ -1,13 +1,7 @@
-export interface TextWithUrl {
-  text: string;
-  url: string;
-}
-
 export interface Source {
-  title: TextWithUrl;        // { text, url }
-  info?: TextWithUrl;        // { text, url }
-  date?: string;             // Optional reference date
-  source_type?: string;      // e.g. "archive", "book", "article"
+  title: string;    // Source title
+  url: string;      // Source URL
+  info: string;     // Required additional info
 }
 
 export interface Event {
@@ -18,23 +12,22 @@ export interface Event {
 }
 
 export interface TimelineEntry {
-  date: string;              // "1146" or "1267-06-03"
-  century: string;           // "XII", "XIII", "XIV"
-  data: Event[];             // Array of events for this date
+  date: string;     // "1146" or "1267-06-03"
+  century: string;  // "XII", "XIII", "XIV"
+  data: Event[];
 }
 
 // ===============================
 // Flattened / processed structures
 // ===============================
 
-// Represents a SINGLE event extracted from TimelineEntry.data
 export interface TimelineEvent {
-  date: string;              // Inherited from parent entry
-  century: string;           // Inherited from parent entry
-  title: string;             // From Event.title
-  presentation: string;      // From Event.presentation
-  sources: Source[];         // From Event.sources
-  context: Source[];         // From Event.context
+  date: string;
+  century: string;
+  title: string;
+  presentation: string;
+  sources: Source[];
+  context: Source[];
 }
 
 // Includes anchor ID and positional flags

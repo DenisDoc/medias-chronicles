@@ -5,6 +5,8 @@
   width: 100%;
   max-width: 64rem; // 4xl
   margin-top: 3.5rem;
+  opacity: 0;
+  will-change: opacity, transform;
 }
 
 .grid {
@@ -80,20 +82,13 @@
 }
 
 .item {
+  cursor: default;
   font-size: clamp($text-sm, 14px, $text-base);
-
-
   display: flex;
+  flex-direction: column;
 
    @include respond-to('md') {
      font-size: clamp($text-sm, 14px, $text-base);
-  }
-
-  flex-direction: column;
-  gap: 0.35rem;
-
-  &:hover .itemInfo {
-    color: $color-primary;
   }
 }
 
@@ -102,6 +97,7 @@
   color: rgba($color-primary, 0.9);
   letter-spacing: 0.025em;
   font-style: italic;
+  transition: $transition-fast;
 }
 
 .itemInfo {
@@ -116,9 +112,17 @@
   text-decoration: none;
   color: inherit;
   transition: $transition-fast;
-  cursor: pointer;
 
   &:hover {
     opacity: 0.8;
+  }
+}
+
+.hasLink {
+  cursor: default;
+
+  &:hover .itemTitle,
+  &:hover .itemInfo {
+    color: $color-primary;
   }
 }
