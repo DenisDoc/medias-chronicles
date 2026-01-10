@@ -26,9 +26,6 @@ export default function TimelineAnimations({ children }: TimelineAnimationsProps
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
-    // Detect mobile device
-    const isMobile = window.innerWidth < 768;
-
     // Get the timeline scroll container
     const scrollContainer = document.querySelector('.timeline') as HTMLElement;
     if (!scrollContainer) return;
@@ -37,13 +34,13 @@ export default function TimelineAnimations({ children }: TimelineAnimationsProps
     const lenis = new Lenis({
       wrapper: scrollContainer,
       content: scrollContainer,
-      duration: isMobile ? 1.0 : 1.2,
+      duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1,
-      touchMultiplier: isMobile ? 1.5 : 2,
+      touchMultiplier: 2,
       infinite: false,
       syncTouch: true,
       syncTouchLerp: 0.1,
