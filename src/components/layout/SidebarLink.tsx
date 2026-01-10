@@ -17,7 +17,7 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
     e.preventDefault();
 
     // Update URL with shallow routing (no component remount)
-    router.push(`/?year=${year}`, { scroll: false });
+    router.push(`?year=${year}`, { scroll: false });
 
     // Set navigation flag to prevent IntersectionObserver from updating URL
     const isNavigatingRef = (window as any).__isNavigating;
@@ -84,7 +84,7 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
 
   return (
     <a
-      href={`/?year=${year}`}
+      href={`?year=${year}`}
       className={`${styles.link} sidebar-link`}
       data-year={`year-${year}`}
       data-first={isFirstOfCentury}

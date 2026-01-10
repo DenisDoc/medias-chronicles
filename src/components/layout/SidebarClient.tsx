@@ -27,7 +27,7 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       const currentYear = searchParams.get('year');
       // Only update if year is different and we're not programmatically navigating
       if (currentYear !== year && !isNavigatingRef.current) {
-        router.replace(`/?year=${year}`, { scroll: false });
+        router.replace(`?year=${year}`, { scroll: false });
       }
     }, 300); // 300ms debounce
   }, [router, searchParams]);

@@ -57,7 +57,7 @@ export default function InitialScrollHandler({
 
       console.log('Updating URL to nearest valid year:', nearest);
 
-      router.replace(`/?year=${nearest}`, { scroll: false });
+      router.replace(`?year=${nearest}`, { scroll: false });
       targetYear = nearest;
     }
 
