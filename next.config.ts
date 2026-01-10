@@ -2,9 +2,11 @@ import type { NextConfig } from 'next'
 // @ts-ignore - next-pwa doesn't have types
 import withPWA from 'next-pwa'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 const nextConfig: NextConfig = {
   output: "export",                  // <-- export as static site
-  basePath: "/medias-chronicles",    // <-- your repo name
+  basePath: isProd ? "/medias-chronicles" : "",    // <-- only use basePath in production
   sassOptions: {},
   images: {
     unoptimized: true,               // Next.js images won't work fully in static export

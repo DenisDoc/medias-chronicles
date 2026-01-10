@@ -2,20 +2,21 @@
   "name": "Medias Chronicles",
   "short_name": "Chronicles",
   "description": "Interactive timeline of Medias history",
-  "start_url": "/",
+  "start_url": "/medias-chronicles/",
+  "scope": "/medias-chronicles/",
   "display": "standalone",
   "background_color": "#141414",
   "theme_color": "#D5C5AB",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icons/web-app-manifest-192x192.png",
+      "src": "/medias-chronicles/icons/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/icons/web-app-manifest-512x512.png",
+      "src": "/medias-chronicles/icons/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
