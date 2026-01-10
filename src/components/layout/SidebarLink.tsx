@@ -18,6 +18,7 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
 
     // Set flag in sessionStorage to skip loading on next render
     sessionStorage.setItem('__clientNavigation', 'true');
+    console.log('[SidebarLink] Set __clientNavigation flag for year:', year);
 
     // Update URL first (adds to browser history)
     router.push(`/?year=${year}`);

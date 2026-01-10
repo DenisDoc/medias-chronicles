@@ -43,6 +43,13 @@ export default function InitialScrollHandler({
 
     if (!yearParam) return;
 
+    // Check if this is a client-side navigation (flag set by SidebarLink)
+    const isClientNav = sessionStorage.getItem('__clientNavigation');
+    if (isClientNav === 'true') {
+      // Don't scroll, let the navigation handler in SidebarLink do it
+      return;
+    }
+
     let targetYear = yearParam;
 
     // If invalid year → find nearest valid one

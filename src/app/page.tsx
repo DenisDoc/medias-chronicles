@@ -20,11 +20,14 @@ function TimelineContent() {
   const [isLoading, setIsLoading] = useState(() => {
     if (typeof window !== 'undefined') {
       const isClientNav = sessionStorage.getItem('__clientNavigation');
+      console.log('[TimelineContent] Initializing isLoading state, __clientNavigation flag:', isClientNav);
       if (isClientNav === 'true') {
         sessionStorage.removeItem('__clientNavigation');
+        console.log('[TimelineContent] Client navigation detected, skipping loading screen');
         return false;
       }
     }
+    console.log('[TimelineContent] Initial page load, showing loading screen');
     return true;
   });
 
