@@ -14,14 +14,8 @@ interface LayoutWrapperProps {
 
 export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowHeight, setWindowHeight] = useState(0);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
-
-  // Set window height on client mount
-  useEffect(() => {
-    setWindowHeight(window.innerHeight);
-  }, []);
 
   // Prevent body scroll when menu is open on mobile
   useEffect(() => {
@@ -37,7 +31,7 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
   }, [menuOpen]);
 
   useEffect(() => {
-    if (!sidebarRef.current || !overlayRef.current || windowHeight === 0) return;
+    if (!sidebarRef.current || !overlayRef.current) return;
 
     // Only animate on mobile (< 768px)
     const isMobile = window.innerWidth < 768;
@@ -61,7 +55,7 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
     } else {
       // Animate sidebar down using bottom property
       gsap.to(sidebarRef.current, {
-        bottom: -windowHeight,
+        bottom: '-100vh',
         duration: 0.5,
         ease: 'power3.in',
       });
@@ -74,7 +68,7 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
         ease: 'power2.out',
       });
     }
-  }, [menuOpen, windowHeight]);
+  }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -98,9 +92,6 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
         <div
           ref={sidebarRef}
           className={styles.sidebarContainer}
-          style={{
-            bottom: (typeof window !== 'undefined' && window.innerWidth < 768) ? -windowHeight : 'auto',
-          }}
         >
           <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} />
         </div>

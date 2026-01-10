@@ -24,6 +24,11 @@
   @media (prefers-reduced-motion: reduce) {
     scroll-behavior: smooth;
   }
+
+  // Enable momentum scrolling on iOS (fallback for native scroll feel)
+  @media (max-width: 767px) {
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .timelineContent {

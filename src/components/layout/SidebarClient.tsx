@@ -45,6 +45,9 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
+    // Detect mobile device
+    const isMobile = window.innerWidth < 768;
+
     // 🔹 Lenis elements (MUST be different)
     const wrapper = document.querySelector('.sidebar-wrapper') as HTMLElement;
     const content = document.querySelector('.sidebar-content') as HTMLElement;
@@ -52,7 +55,7 @@ export default function SidebarClient({ children }: SidebarClientProps) {
 
     if (!wrapper || !content || !sidebar) return;
 
-    // 🔹 Initialize Lenis
+    // 🔹 Initialize Lenis with mobile optimization
     const sidebarLenis = new Lenis({
       wrapper,
       content,
@@ -60,10 +63,12 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       gestureOrientation: 'vertical',
       smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1,
-      touchMultiplier: 2,
-      duration: 1.2,
+      touchMultiplier: isMobile ? 1.5 : 2,
+      duration: isMobile ? 1.0 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       infinite: false,
+      syncTouch: true,
+      syncTouchLerp: 0.1,
     });
 
     // 🔹 RAF loop
