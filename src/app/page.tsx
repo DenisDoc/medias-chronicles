@@ -15,29 +15,12 @@ import styles from './page.module.scss';
 function TimelineContent() {
   const events = getTimelineData();
   const navItems = generateSidebarNavigation(events);
-
-  // Check sessionStorage to skip loading on client-side navigation
-  const [isLoading, setIsLoading] = useState(() => {
-    if (typeof window !== 'undefined') {
-      const isClientNav = sessionStorage.getItem('__clientNavigation');
-      console.log('[TimelineContent] Initializing isLoading state, __clientNavigation flag:', isClientNav);
-      if (isClientNav === 'true') {
-        sessionStorage.removeItem('__clientNavigation');
-        console.log('[TimelineContent] Client navigation detected, skipping loading screen');
-        return false;
-      }
-    }
-    console.log('[TimelineContent] Initial page load, showing loading screen');
-    return true;
-  });
+  const [isLoading, setIsLoading] = useState(true);
 
   // Handle browser back/forward navigation
   useYearNavigation(events);
 
   useEffect(() => {
-    // Skip loading logic if already false
-    if (!isLoading) return;
-
     // Minimum 1 second loading time
     const minLoadTime = 1000;
     const startTime = Date.now();
@@ -63,7 +46,7 @@ function TimelineContent() {
       clearInterval(checkLenis);
       clearTimeout(timeout);
     };
-  }, [isLoading]);
+  }, []);
 
   if (isLoading) {
     return <LoadingSpinner />;

@@ -15,9 +15,6 @@ export function useYearNavigation(events: ProcessedTimelineEvent[]) {
 
   useEffect(() => {
     const handlePopState = () => {
-      // Set flag to skip loading screen on browser back/forward
-      sessionStorage.setItem('__clientNavigation', 'true');
-
       // Get current year from URL
       const currentYear = extractYearFromURL(new URLSearchParams(window.location.search));
 

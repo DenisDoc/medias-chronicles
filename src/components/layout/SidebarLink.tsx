@@ -16,12 +16,8 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    // Set flag in sessionStorage to skip loading on next render
-    sessionStorage.setItem('__clientNavigation', 'true');
-    console.log('[SidebarLink] Set __clientNavigation flag for year:', year);
-
-    // Update URL first (adds to browser history)
-    router.push(`/?year=${year}`);
+    // Update URL with shallow routing (no component remount)
+    router.push(`/?year=${year}`, { scroll: false });
 
     // Set navigation flag to prevent IntersectionObserver from updating URL
     const isNavigatingRef = (window as any).__isNavigating;
