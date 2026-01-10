@@ -16,6 +16,9 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
+    // Set flag in sessionStorage to skip loading on next render
+    sessionStorage.setItem('__clientNavigation', 'true');
+
     // Update URL first (adds to browser history)
     router.push(`/?year=${year}`);
 

@@ -15,12 +15,26 @@ import styles from './page.module.scss';
 function TimelineContent() {
   const events = getTimelineData();
   const navItems = generateSidebarNavigation(events);
-  const [isLoading, setIsLoading] = useState(true);
+
+  // Check sessionStorage to skip loading on client-side navigation
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const isClientNav = sessionStorage.getItem('__clientNavigation');
+      if (isClientNav === 'true') {
+        sessionStorage.removeItem('__clientNavigation');
+        return false;
+      }
+    }
+    return true;
+  });
 
   // Handle browser back/forward navigation
   useYearNavigation(events);
 
   useEffect(() => {
+    // Skip loading logic if already false
+    if (!isLoading) return;
+
     // Minimum 1 second loading time
     const minLoadTime = 1000;
     const startTime = Date.now();
@@ -46,7 +60,7 @@ function TimelineContent() {
       clearInterval(checkLenis);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [isLoading]);
 
   if (isLoading) {
     return <LoadingSpinner />;
