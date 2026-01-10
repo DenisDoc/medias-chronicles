@@ -23,6 +23,19 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
     setWindowHeight(window.innerHeight);
   }, []);
 
+  // Prevent body scroll when menu is open on mobile
+  useEffect(() => {
+    if (menuOpen && window.innerWidth < 768) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
+
   useEffect(() => {
     if (!sidebarRef.current || !overlayRef.current || windowHeight === 0) return;
 
@@ -31,9 +44,9 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
     if (!isMobile) return;
 
     if (menuOpen) {
-      // Animate sidebar up from bottom
+      // Animate sidebar up from bottom using bottom property
       gsap.to(sidebarRef.current, {
-        y: 0,
+        bottom: 0,
         duration: 0.5,
         ease: 'power3.out',
       });
@@ -46,9 +59,9 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
         ease: 'power2.out',
       });
     } else {
-      // Animate sidebar down
+      // Animate sidebar down using bottom property
       gsap.to(sidebarRef.current, {
-        y: windowHeight,
+        bottom: -windowHeight,
         duration: 0.5,
         ease: 'power3.in',
       });
@@ -82,11 +95,11 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
       
       <main className={styles.main}>
         {/* Sidebar container - always rendered */}
-        <div 
+        <div
           ref={sidebarRef}
           className={styles.sidebarContainer}
-          style={{ 
-            y: (typeof window !== 'undefined' && window.innerWidth < 768) ? windowHeight : 0,
+          style={{
+            bottom: (typeof window !== 'undefined' && window.innerWidth < 768) ? -windowHeight : 'auto',
           }}
         >
           <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} />

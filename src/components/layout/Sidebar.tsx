@@ -99,7 +99,6 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
         <line stroke="#D5C5AB" strokeWidth="1.5" x1="250" x2="250" y1="50" y2="10"></line>
         <circle cx="250" cy="10" r="3" stroke="#D5C5AB" strokeWidth="1.5"></circle>
       </svg>
-
       <SidebarClient>
         {/* 🔹 SCROLL WRAPPER (Lenis wrapper) */}
         <div className={`${styles.wrapper} sidebar-wrapper`}>
