@@ -1,0 +1,395 @@
+  {
+    "date": "1146",
+    "century": "XII",
+    "data": [
+      {
+        "title": "Fondarea așezării Mediaș",
+        "presentation": "An considerat ca început al așezării Mediaș, odată cu stabilirea coloniștilor sași.",
+        "sources": [
+          {
+            "title": {
+              "text": "Paul Niedermayer – Istoria Mediașului",
+              "url": "https://example.org/niedermayer"
+            },
+            "info": {
+              "text": "Lucrare de referință privind originile orașului Mediaș.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Cronici săsești timpurii",
+              "url": "https://example.org/cronici-sasesti"
+            },
+            "info": {
+              "text": "Mențiuni despre colonizarea săsească în Transilvania.",
+              "url": ""
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Colonizarea sașilor în Transilvania",
+              "url": "https://example.org/colonizare"
+            },
+            "info": {
+              "text": "Procesul de stabilire a coloniștilor germani în secolele XII–XIII.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Rolul strategic al Văii Târnavei Mari",
+              "url": "https://example.org/tarnava"
+            },
+            "info": {
+              "text": "Poziția geografică a influențat dezvoltarea așezărilor medievale.",
+              "url": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "1200",
+    "century": "XIII",
+    "data": [
+      {
+        "title": "Dezvoltarea așezării timpurii",
+        "presentation": "Așezarea începe să se dezvolte în jurul agriculturii și meșteșugurilor.",
+        "sources": [
+            {
+            "title": {
+              "text": "Rețele urbane săsești",
+              "url": "https://example.org/retele-urbane"
+            },
+            "info": {
+              "text": "Legături economice și administrative între orașe.",
+              "url": ""
+            }
+          },
+           {
+            "title": {
+              "text": "Rețele urbane săsești",
+              "url": "https://example.org/retele-urbane"
+            },
+            "info": {
+              "text": "Legături economice și administrative între orașe.",
+              "url": ""
+            }
+          },
+           {
+            "title": {
+              "text": "Rețele urbane săsești",
+              "url": "https://example.org/retele-urbane"
+            },
+            "info": {
+              "text": "Legături economice și administrative între orașe.",
+              "url": ""
+            }
+          },
+           {
+            "title": {
+              "text": "Rețele urbane săsești",
+              "url": "https://example.org/retele-urbane"
+            },
+            "info": {
+              "text": "Legături economice și administrative între orașe.",
+              "url": ""
+            }
+          },
+
+          {
+            "title": {
+              "text": "Cronici medievale",
+              "url": ""
+            },
+            "info": {
+              "text": "Mențiuni generale despre așezările săsești.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Studii arheologice regionale",
+              "url": "https://example.org/arheologie"
+            },
+            "info": {
+              "text": "Descoperiri materiale care indică activități economice timpurii.",
+              "url": ""
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Economia rurală medievală",
+              "url": "https://example.org/economie-medievala"
+            },
+            "info": {
+              "text": "Agricultura și meșteșugurile ca bază a dezvoltării locale.",
+              "url": ""
+            }
+          }
+        ]
+      },
+      {
+        "title": "Organizarea comunității locale",
+        "presentation": "Primele forme de organizare comunitară apar în această perioadă.",
+        "sources": [
+          {
+            "title": {
+              "text": "Documente ecleziastice",
+              "url": "https://example.org/ecleziastic"
+            },
+            "info": {
+              "text": "Mențiuni privind organizarea comunităților locale.",
+              "url": ""
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Structuri sociale medievale",
+              "url": ""
+            },
+            "info": {
+              "text": "Modele de organizare rurală în Transilvania.",
+              "url": "https://example.org/structuri-sociale"
+            }
+          },
+          {
+            "title": {
+              "text": "Autoguvernarea comunităților săsești",
+              "url": "https://example.org/autoguvernare"
+            },
+            "info": {
+              "text": "Forme timpurii de conducere locală.",
+              "url": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "1267-06-03",
+    "century": "XIII",
+    "data": [
+      {
+        "title": "Prima atestare documentară",
+        "presentation": "Localitatea este menționată pentru prima dată sub numele de Mediesy.",
+        "sources": [
+          {
+            "title": {
+              "text": "Diplomă regală",
+              "url": "https://example.org/diploma"
+            },
+            "info": {
+              "text": "Document de proprietate medieval.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Arhivele Regatului Ungar",
+              "url": "https://example.org/arhive-ungare"
+            },
+            "info": {
+              "text": "Colecție de diplome și acte oficiale.",
+              "url": ""
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Administrația medievală",
+              "url": ""
+            },
+            "info": {
+              "text": "Structura proprietăților în secolul XIII.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Toponimia medievală",
+              "url": "https://example.org/toponimie"
+            },
+            "info": {
+              "text": "Evoluția denumirilor localităților în documente.",
+              "url": ""
+            }
+          }
+        ]
+      },
+      {
+        "title": "Statutul teritorial",
+        "presentation": "Teritoriul aparține nobilului Jula Magnus.",
+        "sources": [
+          {
+            "title": {
+              "text": "Arhive nobiliare",
+              "url": "https://example.org/arhive"
+            }
+          },
+          {
+            "title": {
+              "text": "Studii istorice",
+              "url": "https://example.org/studii"
+            },
+            "info": {
+              "text": "Analize moderne ale documentelor medievale.",
+              "url": "https://example.org/studii-info"
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Nobilimea transilvăneană",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Feudalismul",
+              "url": "https://example.org/feudalism"
+            },
+            "info": {
+              "text": "Sistemul feudal în Europa Centrală.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Relațiile dintre nobili și comunități",
+              "url": "https://example.org/relatii-feudale"
+            },
+            "info": {
+              "text": "Obligații și drepturi în structurile medievale.",
+              "url": ""
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "date": "1315",
+    "century": "XIV",
+    "data": [
+      {
+        "title": "Extinderea drepturilor săsești",
+        "presentation": "Regele extinde drepturile provinciei Sibiu asupra Mediașului.",
+        "sources": [
+          {
+            "title": {
+              "text": "Diplome regale ale lui Károly Róbert",
+              "url": "https://example.org/karoly-robert"
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Universitas Saxonum",
+              "url": "https://example.org/universitas"
+            },
+            "info": {
+              "text": "Organizarea colectivă a sașilor.",
+              "url": "https://example.org/universitas-info"
+            }
+          },
+          {
+            "title": {
+              "text": "Privilegii regale medievale",
+              "url": "https://example.org/privilegii-regale"
+            },
+            "info": {
+              "text": "Rolul privilegiilor în dezvoltarea orașelor.",
+              "url": ""
+            }
+          }
+        ]
+      },
+      {
+        "title": "Menționarea comunității săsești",
+        "presentation": "Este menționată Communitas Saxonum de Medgyes.",
+        "sources": [
+          {
+            "title": {
+              "text": "Documente regale",
+              "url": ""
+            },
+            "info": {
+              "text": "Diplome emise de cancelaria regală.",
+              "url": "https://example.org/regale"
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Drepturi colective",
+              "url": "https://example.org/privilegii"
+            }
+          },
+          {
+            "title": {
+              "text": "Administrație locală",
+              "url": ""
+            },
+            "info": {
+              "text": "Structura administrativă a scaunelor săsești.",
+              "url": ""
+            }
+          }
+        ]
+      },
+      {
+        "title": "Integrarea regională",
+        "presentation": "Mediașul devine parte activă a rețelei administrative săsești.",
+        "sources": [
+          {
+            "title": {
+              "text": "Studii regionale",
+              "url": "https://example.org/regional"
+            }
+          },
+          {
+            "title": {
+              "text": "Analize istorice",
+              "url": ""
+            }
+          }
+        ],
+        "context": [
+          {
+            "title": {
+              "text": "Urbanizarea medievală",
+              "url": "https://example.org/urbanizare"
+            },
+            "info": {
+              "text": "Creșterea orașelor în Evul Mediu.",
+              "url": ""
+            }
+          },
+          {
+            "title": {
+              "text": "Rețele urbane săsești",
+              "url": "https://example.org/retele-urbane"
+            },
+            "info": {
+              "text": "Legături economice și administrative între orașe.",
+              "url": ""
+            }
+          }
+        ]
+      }
+    ]
+  }

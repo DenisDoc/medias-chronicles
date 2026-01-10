@@ -1,7 +1,7 @@
 import styles from './CenturyDivider.module.scss';
 
 interface CenturyDividerProps {
-  century: string;
+  century?: string;
 }
 
 export default function CenturyDivider({ century }: CenturyDividerProps) {

@@ -1,0 +1,553 @@
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Timeline - Illuminated Typography V2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Lato:wght@100;300;400;700;900&amp;family=Oswald:wght@200;300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D5C5AB", 
+              "background-light": "#F5F2EA",
+              "background-dark": "#141414",
+              "surface-dark": "#1C1C1C",
+              "text-muted": "#888888",
+              "accent-gold": "#D5C5AB",
+              "illuminated": "#FFF9F0",
+            },
+            fontFamily: {
+              display: ["'Oswald'", "sans-serif"],
+              serif: ["'Cormorant Garamond'", "serif"],
+              sans: ["'Lato'", "sans-serif"],
+            },
+            letterSpacing: {
+              tighter: '-0.05em',
+              widest: '0.25em',
+              'mega': '0.5em',
+            },
+            fontSize: {
+              '10xl': '10rem',
+              '12xl': '12rem',
+              'mega': '16rem',
+              'giga': '24rem',
+              'tera': '32rem',
+            },
+            boxShadow: {
+              'inner-glow': 'inset 0 0 10px rgba(255, 249, 240, 0.1), 0 0 8px rgba(255, 249, 240, 0.15)',
+            },
+            textShadow: {
+              'glow': '0 0 12px rgba(255, 249, 240, 0.4)',
+            },
+            animation: {
+                'fade-in': 'fadeIn 1s ease-out forwards',
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: '0', transform: 'translateY(10px)' },
+                    '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+            }
+          },
+        },
+      };
+    </script>
+<style>
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 20px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .sidebar-link {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }.text-gradient-gold {
+            background: linear-gradient(to right, #D5C5AB, #D5C5AB); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-illuminated-glow {
+            text-shadow: 0 0 12px rgba(255, 249, 240, 0.3), 0 0 2px rgba(255, 249, 240, 0.1);
+        }
+        ::selection {
+            background: #D5C5AB;
+            color: #141414;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-primary transition-colors duration-300 font-sans overflow-hidden h-screen flex flex-col">
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-8 py-8 bg-gradient-to-b from-background-dark via-background-dark/80 to-transparent pointer-events-none">
+<nav class="hidden md:flex gap-12 text-[10px] font-bold tracking-[0.3em] uppercase pointer-events-auto items-center">
+<a class="text-illuminated hover:text-white transition-colors duration-300 text-illuminated-glow" href="#">[ adaugă ]</a>
+</nav>
+<button class="md:hidden text-primary pointer-events-auto">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</header>
+<main class="flex-1 flex h-full pt-0">
+<aside class="w-72 hidden md:flex flex-col h-full border-r border-white/[0.03] relative z-30 bg-background-dark/50 backdrop-blur-sm">
+<div class="flex-1 overflow-y-auto py-32 px-0 no-scrollbar relative flex flex-col items-center justify-center">
+<div class="space-y-10 w-full flex flex-col items-center">
+<a class="sidebar-link block font-display text-4xl font-light text-primary leading-none cursor-pointer tracking-wider" href="#year-1146">1146</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-primary text-center leading-loose">
+                            XII<br/>Cen
+                        </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1200">1200</a>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1267">1267</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-primary text-center leading-loose">
+                            XIII<br/>Cen
+                        </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1300">1300</a>
+<a class="sidebar-link block font-display text-xl font-light text-white/20 hover:text-primary transition-colors leading-none tracking-widest" href="#year-1359">1359</a>
+<div class="py-2 flex flex-col items-center gap-4 opacity-40 group hover:opacity-100 transition-opacity duration-500">
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+<span class="text-[0.55rem] font-bold uppercase tracking-[0.4em] text-primary text-center leading-loose">
+                            XIV<br/>Cen
+                        </span>
+<div class="h-8 w-[1px] bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+</div>
+</div>
+<div class="p-8 border-t border-white/[0.03] text-center">
+<span class="material-symbols-outlined text-primary/50 text-sm hover:text-primary transition-colors cursor-pointer">tune</span>
+</div>
+</aside>
+<section class="flex-1 overflow-y-auto relative bg-background-dark scroll-smooth">
+<div class="fixed right-0 top-0 bottom-0 w-2/3 bg-gradient-to-l from-background-dark via-background-dark/95 to-transparent pointer-events-none z-0"></div>
+<div class="fixed left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background-dark to-transparent pointer-events-none z-20 md:hidden"></div>
+<div class="w-full max-w-none relative z-10 pb-40">
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-primary/[0.05]" id="year-1146">
+<div class="absolute left-1/2 -translate-x-1/2 md:-left-12 md:translate-x-0 top-[-20%] md:top-[-10%] h-[140%] w-auto opacity-[0.04] pointer-events-none select-none z-0">
+<svg class="h-full w-auto block" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M150,900 L350,900" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<path d="M150,700 L350,700" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<circle cx="250" cy="460" r="3" stroke="#D5C5AB" stroke-width="1"></circle>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="425" y2="435"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="485" y2="495"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="285" x2="275" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="215" x2="225" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="265" y1="460" y2="445"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="240" y1="460" y2="470"></line>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M180,320 L250,120 L320,320" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M200,250 L250,180 L300,250" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<line stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5" x1="250" x2="250" y1="50" y2="400"></line>
+<path d="M160,400 L140,320 L180,320 L160,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="160" x2="160" y1="320" y2="300"></line>
+<path d="M340,400 L320,320 L360,320 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="340" x2="340" y1="320" y2="300"></line>
+<path d="M200,400 L190,340 L220,340 L210,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="205" x2="205" y1="340" y2="330"></line>
+<path d="M300,400 L280,340 L310,340 L290,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="295" x2="295" y1="340" y2="330"></line>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary/20"></span>
+                                Înființarea Localității Mediaș
+                            </h1>
+<p class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.4] md:leading-[1.3] font-light tracking-wide text-pretty mb-12">
+<span class="text-white/90 font-normal italic">Prima mențiune documentară</span> a așezării. Documentele istorice atestă formarea nucleului urban care va deveni unul dintre cele mai importante centre comerciale și culturale ale Transilvaniei medievale
+                            <a class="inline-flex items-center gap-1.5 align-baseline ml-6 opacity-60 hover:opacity-100 transition-opacity duration-300 font-sans text-lg md:text-xl font-medium text-illuminated text-illuminated-glow" href="#">
+                                [ <span class="tracking-wide">editează</span> ]
+                            </a>
+</p>
+<div class="w-full max-w-4xl">
+<div class="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 relative">
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Context</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Regatul Ungariei</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Dinastia Arpadiană</span>
+</div>
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Colonizarea Sașilor</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Siebenbürgen</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Surse</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Diploma Andreanum</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Arhiva Națională — Ref. 1224</span>
+</div>
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Codex Altemberger</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Muzeul Brukenthal — Ms. 44</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-primary/[0.05]" id="year-1200">
+<div class="absolute left-1/2 -translate-x-1/2 md:-left-12 md:translate-x-0 top-[-20%] md:top-[-10%] h-[140%] w-auto opacity-[0.04] pointer-events-none select-none z-0">
+<svg class="h-full w-auto block" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M150,900 L350,900" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<path d="M150,700 L350,700" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<circle cx="250" cy="460" r="3" stroke="#D5C5AB" stroke-width="1"></circle>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="425" y2="435"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="485" y2="495"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="285" x2="275" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="215" x2="225" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="265" y1="460" y2="445"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="240" y1="460" y2="470"></line>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M180,320 L250,120 L320,320" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M200,250 L250,180 L300,250" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<line stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5" x1="250" x2="250" y1="50" y2="400"></line>
+<path d="M160,400 L140,320 L180,320 L160,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="160" x2="160" y1="320" y2="300"></line>
+<path d="M340,400 L320,320 L360,320 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="340" x2="340" y1="320" y2="300"></line>
+<path d="M200,400 L190,340 L220,340 L210,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="205" x2="205" y1="340" y2="330"></line>
+<path d="M300,400 L280,340 L310,340 L290,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="295" x2="295" y1="340" y2="330"></line>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary/20"></span>
+                                Saxon Colonization &amp; Urban Growth
+                            </h1>
+<p class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.4] md:leading-[1.3] font-light tracking-wide text-pretty mb-12">
+<span class="text-white/90 font-normal italic">The systematic arrival</span> of German settlers begins to shape the urban structure, introducing new agricultural techniques, crafts, and the distinct fortified architecture that would define the region
+                            <a class="inline-flex items-center gap-1.5 align-baseline ml-6 opacity-60 hover:opacity-100 transition-opacity duration-300 font-sans text-lg md:text-xl font-medium text-illuminated text-illuminated-glow" href="#">
+                                [ <span class="tracking-wide">editează</span> ]
+                            </a>
+</p>
+<div class="w-full max-w-4xl">
+<div class="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 relative">
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Context</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Ostsiedlung</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Migration Period</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Surse</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Settlement Plans</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Regional Archives — Map Series B</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-primary/[0.05]" id="year-1267">
+<div class="absolute left-1/2 -translate-x-1/2 md:-left-12 md:translate-x-0 top-[-20%] md:top-[-10%] h-[140%] w-auto opacity-[0.04] pointer-events-none select-none z-0">
+<svg class="h-full w-auto block" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M150,900 L350,900" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<path d="M150,700 L350,700" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<circle cx="250" cy="460" r="3" stroke="#D5C5AB" stroke-width="1"></circle>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="425" y2="435"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="485" y2="495"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="285" x2="275" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="215" x2="225" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="265" y1="460" y2="445"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="240" y1="460" y2="470"></line>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M180,320 L250,120 L320,320" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M200,250 L250,180 L300,250" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<line stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5" x1="250" x2="250" y1="50" y2="400"></line>
+<path d="M160,400 L140,320 L180,320 L160,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="160" x2="160" y1="320" y2="300"></line>
+<path d="M340,400 L320,320 L360,320 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="340" x2="340" y1="320" y2="300"></line>
+<path d="M200,400 L190,340 L220,340 L210,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="205" x2="205" y1="340" y2="330"></line>
+<path d="M300,400 L280,340 L310,340 L290,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="295" x2="295" y1="340" y2="330"></line>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary/20"></span>
+                                Attestation of Terra Medies
+                            </h1>
+<p class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.4] md:leading-[1.3] font-light tracking-wide text-pretty mb-12">
+<span class="text-white/90 font-normal italic">Terra Medies'</span> first documentary attestation appears in a royal diploma issued by King Stephen V of Hungary, granting specific privileges and rights to the settlement's inhabitants
+                            <a class="inline-flex items-center gap-1.5 align-baseline ml-6 opacity-60 hover:opacity-100 transition-opacity duration-300 font-sans text-lg md:text-xl font-medium text-illuminated text-illuminated-glow" href="#">
+                                [ <span class="tracking-wide">editează</span> ]
+                            </a>
+</p>
+<div class="w-full max-w-4xl">
+<div class="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 relative">
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Context</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Hungarian Kingdom</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">13th Century</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Surse</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Royal Diploma V</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">National Archives — Doc. 892</span>
+</div>
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Vatican Records</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Archivum Secretum — Vol. IX</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-primary/[0.05]" id="year-1300">
+<div class="absolute left-1/2 -translate-x-1/2 md:-left-12 md:translate-x-0 top-[-20%] md:top-[-10%] h-[140%] w-auto opacity-[0.04] pointer-events-none select-none z-0">
+<svg class="h-full w-auto block" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M150,900 L350,900" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<path d="M150,700 L350,700" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<circle cx="250" cy="460" r="3" stroke="#D5C5AB" stroke-width="1"></circle>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="425" y2="435"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="485" y2="495"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="285" x2="275" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="215" x2="225" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="265" y1="460" y2="445"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="240" y1="460" y2="470"></line>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M180,320 L250,120 L320,320" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M200,250 L250,180 L300,250" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<line stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5" x1="250" x2="250" y1="50" y2="400"></line>
+<path d="M160,400 L140,320 L180,320 L160,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="160" x2="160" y1="320" y2="300"></line>
+<path d="M340,400 L320,320 L360,320 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="340" x2="340" y1="320" y2="300"></line>
+<path d="M200,400 L190,340 L220,340 L210,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="205" x2="205" y1="340" y2="330"></line>
+<path d="M300,400 L280,340 L310,340 L290,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="295" x2="295" y1="340" y2="330"></line>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary/20"></span>
+                                Rise of the Ecclesiastical Center
+                            </h1>
+<p class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.4] md:leading-[1.3] font-light tracking-wide text-pretty mb-12">
+<span class="text-white/90 font-normal italic">The settlement expands</span> around the central St. Margaret's Church. This period marks the beginning of significant stone construction and the establishment of powerful craft guilds that would dominate the city's economy
+                            <a class="inline-flex items-center gap-1.5 align-baseline ml-6 opacity-60 hover:opacity-100 transition-opacity duration-300 font-sans text-lg md:text-xl font-medium text-illuminated text-illuminated-glow" href="#">
+                                [ <span class="tracking-wide">editează</span> ]
+                            </a>
+</p>
+<div class="w-full max-w-4xl">
+<div class="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 relative">
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Context</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Ecclesiastical Power</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Medieval Europe</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Surse</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Parish Records</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Church Archives — 1300-1350</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="min-h-screen flex items-center relative overflow-hidden group py-20 border-b border-primary/[0.05]" id="year-1359">
+<div class="absolute left-1/2 -translate-x-1/2 md:-left-12 md:translate-x-0 top-[-20%] md:top-[-10%] h-[140%] w-auto opacity-[0.04] pointer-events-none select-none z-0">
+<svg class="h-full w-auto block" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M150,900 L350,900" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<path d="M150,700 L350,700" stroke="#D5C5AB" stroke-dasharray="10 10" stroke-width="0.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<circle cx="250" cy="460" r="3" stroke="#D5C5AB" stroke-width="1"></circle>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="425" y2="435"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="250" x2="250" y1="485" y2="495"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="285" x2="275" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="1" x1="215" x2="225" y1="460" y2="460"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="265" y1="460" y2="445"></line>
+<line stroke="#D5C5AB" stroke-width="0.8" x1="250" x2="240" y1="460" y2="470"></line>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M180,320 L250,120 L320,320" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<path d="M200,250 L250,180 L300,250" stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5"></path>
+<line stroke="#D5C5AB" stroke-opacity="0.5" stroke-width="0.5" x1="250" x2="250" y1="50" y2="400"></line>
+<path d="M160,400 L140,320 L180,320 L160,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="160" x2="160" y1="320" y2="300"></line>
+<path d="M340,400 L320,320 L360,320 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.2"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="340" x2="340" y1="320" y2="300"></line>
+<path d="M200,400 L190,340 L220,340 L210,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="205" x2="205" y1="340" y2="330"></line>
+<path d="M300,400 L280,340 L310,340 L290,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1"></path>
+<line stroke="#D5C5AB" stroke-width="1" x1="295" x2="295" y1="340" y2="330"></line>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="container mx-auto px-8 md:px-24 flex flex-col justify-center h-full relative z-10">
+<div class="relative py-4 max-w-6xl">
+<h1 class="font-sans text-[10px] md:text-xs font-bold tracking-[0.3em] text-primary/40 uppercase mb-8 flex items-center gap-4">
+<span class="w-12 h-[1px] bg-primary/20"></span>
+                                Elevation to Civitas Mediensis
+                            </h1>
+<p class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary leading-[1.4] md:leading-[1.3] font-light tracking-wide text-pretty mb-12">
+<span class="text-white/90 font-normal italic">A pivotal moment</span> in history: Mediaș is officially granted the status of "Civitas" (City). This royal decree acknowledges its economic power and grants the right to build full fortification walls and hold annual markets
+                            <a class="inline-flex items-center gap-1.5 align-baseline ml-6 opacity-60 hover:opacity-100 transition-opacity duration-300 font-sans text-lg md:text-xl font-medium text-illuminated text-illuminated-glow" href="#">
+                                [ <span class="tracking-wide">editează</span> ]
+                            </a>
+</p>
+<div class="w-full max-w-4xl">
+<div class="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-12 relative">
+<div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-primary/20 -translate-x-1/2"></div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Context</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Urban Rights</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Free Royal City</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex items-baseline justify-between gap-3 mb-6">
+<h3 class="font-serif text-[11px] uppercase tracking-[0.2em] text-primary/60">Surse</h3>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex flex-col gap-1 group cursor-pointer">
+<span class="font-serif text-sm text-primary/90 tracking-wide italic">Civitas Charter</span>
+<span class="font-serif text-[10px] text-primary/50 uppercase tracking-widest group-hover:text-primary transition-colors">Royal Decree — Louis I of Hungary</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="py-40 text-center border-t border-white/5 mt-20 flex flex-col items-center justify-center gap-6">
+<div class="w-[1px] h-24 bg-gradient-to-b from-white/10 to-transparent"></div>
+<p class="text-primary/40 text-[0.6rem] tracking-[0.5em] uppercase font-display">End of Archive</p>
+</div>
+</div>
+</section>
+</main>
+<script>
+        const sections = document.querySelectorAll('[id^="year-"]');
+        const navLinks = document.querySelectorAll('aside a.sidebar-link');
+        const observerOptions = {
+            root: document.querySelector('section'),
+            rootMargin: '-50% 0px -50% 0px', 
+            threshold: 0
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    // Reset styles for all links
+                    navLinks.forEach(link => {
+                        link.classList.remove('text-4xl', 'text-primary', 'font-normal');
+                        link.classList.add('text-xl', 'text-white/20', 'font-light');
+                    });
+                    // Activate current link
+                    const activeLink = document.querySelector(`aside a[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.remove('text-xl', 'text-white/20', 'font-light');
+                        activeLink.classList.add('text-4xl', 'text-primary', 'font-normal');
+                    }
+                }
+            });
+        }, observerOptions);
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body></html>

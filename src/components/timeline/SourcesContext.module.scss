@@ -1,0 +1,124 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  width: 100%;
+  max-width: 64rem; // 4xl
+  margin-top: 3.5rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+
+  @include respond-to('md') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.gridSingle {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+
+  // Single section should not use grid layout, keep flex
+  @include respond-to('md') {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.divider {
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba($color-primary, 0.2);
+    transform: translateX(-50%);
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+// $text-xs: 0.625rem;      // 10px
+// $text-sm: 0.75rem;       // 12px
+// $text-base: 1rem;        // 16px
+// $text-lg: 1.125rem;      // 18px
+// $text-xl: 1.25rem;       // 20px
+// $text-2xl: 1.5rem;       // 24px
+// $text-3xl: 1.875rem;     // 30px
+// $text-4xl: 2.25rem;      // 36px
+
+.sectionTitle {
+  font-family: $font-sans;
+  font-size: $text-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba($color-accent-gold, 0.4);
+  margin-bottom: 1.2rem;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  font-size: clamp($text-sm, 14px, $text-base);
+
+
+  display: flex;
+
+   @include respond-to('md') {
+     font-size: clamp($text-sm, 14px, $text-base);
+  }
+
+  flex-direction: column;
+  gap: 0.35rem;
+
+  &:hover .itemInfo {
+    color: $color-primary;
+  }
+}
+
+.itemTitle {
+  font-family: $font-serif;
+  color: rgba($color-primary, 0.9);
+  letter-spacing: 0.025em;
+  font-style: italic;
+}
+
+.itemInfo {
+  font-family: $font-serif;
+  color: rgba($color-primary, 0.5);
+  text-transform: uppercase;
+  letter-spacing: $tracking-widest;
+  transition: $transition-fast;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+  transition: $transition-fast;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

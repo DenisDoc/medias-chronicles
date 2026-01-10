@@ -45,9 +45,10 @@ export function useYearNavigation(events: ProcessedTimelineEvent[]) {
         isNavigatingRef.current = true;
       }
 
-      // Get elements
-      const targetId = getEventIdFromYear(targetYear);
-      const target = document.getElementById(targetId);
+      // Get elements - target the content container, not the section
+      const sectionId = getEventIdFromYear(targetYear);
+      const contentId = `content-${sectionId}`;
+      const target = document.getElementById(contentId);
       if (!target) return;
 
       const scrollContainer = document.querySelector('.timeline') as HTMLElement;

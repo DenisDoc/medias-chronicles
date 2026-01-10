@@ -1,10 +1,13 @@
-// New types for JSON structure
+export interface TextWithUrl {
+  text: string;
+  url: string;
+}
+
 export interface Source {
-  title: string;
-  info?: string;
-  date?: string;
-  url?: string;
-  source_type?: string;
+  title: TextWithUrl;        // { text, url }
+  info?: TextWithUrl;        // { text, url }
+  date?: string;             // Optional reference date
+  source_type?: string;      // e.g. "archive", "book", "article"
 }
 
 export interface Event {
@@ -20,23 +23,30 @@ export interface TimelineEntry {
   data: Event[];             // Array of events for this date
 }
 
-// Updated: This now represents a SINGLE event from the data array
+// ===============================
+// Flattened / processed structures
+// ===============================
+
+// Represents a SINGLE event extracted from TimelineEntry.data
 export interface TimelineEvent {
   date: string;              // Inherited from parent entry
   century: string;           // Inherited from parent entry
   title: string;             // From Event.title
-  presentation: string;      // From Event.presentation (renamed from 'info')
+  presentation: string;      // From Event.presentation
   sources: Source[];         // From Event.sources
   context: Source[];         // From Event.context
 }
 
-// ProcessedTimelineEvent now includes anchor ID and flags
+// Includes anchor ID and positional flags
 export interface ProcessedTimelineEvent extends TimelineEvent {
   id: string;                // Generated anchor ID (e.g., "year-1146", "year-1146-2")
-  hasTitle: boolean;         // Whether title should be rendered
   isFirstOfDate: boolean;    // Whether this is the first event for this date
   eventIndex: number;        // Index within the date's data array (0, 1, 2...)
 }
+
+// ===============================
+// Grouping & navigation
+// ===============================
 
 export interface CenturyGroup {
   century: string;           // "XII", "XIII", etc.

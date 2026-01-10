@@ -25,7 +25,9 @@ export default function SidebarLink({ targetId, year, isFirstOfCentury, onNaviga
       isNavigatingRef.current = true;
     }
 
-    const target = document.getElementById(targetId);
+    // Target the content container, not the section
+    const contentId = `content-${targetId}`;
+    const target = document.getElementById(contentId);
     if (!target) return;
 
     // Get the timeline scroll container

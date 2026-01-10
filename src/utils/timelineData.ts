@@ -18,7 +18,7 @@ export function processTimelineData(): ProcessedTimelineEvent[] {
   const entries = timelineData as TimelineEntry[];
   const processedEvents: ProcessedTimelineEvent[] = [];
 
-  entries.forEach((entry) => {
+  entries?.forEach((entry) => {
     // Each entry can have multiple events in its data array
     entry.data.forEach((event, index) => {
       // Generate unique ID for each event
@@ -40,7 +40,6 @@ export function processTimelineData(): ProcessedTimelineEvent[] {
 
         // Metadata for rendering
         id,
-        hasTitle: event.title.trim() !== '',
         isFirstOfDate: index === 0,
         eventIndex: index,
       });

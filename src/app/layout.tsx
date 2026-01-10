@@ -28,6 +28,21 @@ export const metadata: Metadata = {
   title: "Mediaș History Timeline",
   description: "An interactive historical timeline showcasing the rich history of Mediaș, from medieval settlements to present day. Explore the cultural heritage and significant events of Transylvania.",
   keywords: ["Mediaș history", "Transylvania", "medieval timeline", "Saxon heritage", "Romanian history"],
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'Mediaș Timeline',
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  themeColor: '#D5C5AB',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
   openGraph: {
     title: "Mediaș History Timeline",
     description: "Interactive historical timeline of Mediaș, Transylvania",
@@ -50,6 +65,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
       </head>
       <body className={`${oswald.variable} ${cormorant.variable} ${lato.variable}`}>
         {children}

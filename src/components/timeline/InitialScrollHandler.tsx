@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { ProcessedTimelineEvent } from '@/types/timeline';
 import {
@@ -13,90 +13,91 @@ import {
 interface InitialScrollHandlerProps {
   events: ProcessedTimelineEvent[];
 }
-
-export default function InitialScrollHandler({ events }: InitialScrollHandlerProps) {
-  const searchParams = useSearchParams();
+export default function InitialScrollHandler({
+  events
+}: InitialScrollHandlerProps) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  /**
+   * The final, validated year we want to scroll to.
+   * This is intentionally separated from scrolling logic.
+   */
+  const [resolvedYear, setResolvedYear] = useState<string | null>(null);
+
+  /**
+   * Prevents multiple scroll attempts AFTER a successful scroll.
+   * Do NOT set this too early.
+   */
   const hasScrolledRef = useRef(false);
 
+  /**
+   * STEP 1:
+   * Resolve the target year from the URL.
+   * This effect may run multiple times — that is EXPECTED.
+   */
   useEffect(() => {
-    if (hasScrolledRef.current) return;
-    if (typeof window === 'undefined') return;
+    if (!events || events.length === 0) return;
 
     const yearParam = extractYearFromURL(searchParams);
+
     if (!yearParam) return;
 
     let targetYear = yearParam;
 
-    // Validate year and find nearest if invalid
+    // If invalid year → find nearest valid one
     if (!isValidYear(yearParam, events)) {
-      targetYear = findNearestYear(yearParam, events);
+      const nearest = findNearestYear(yearParam, events);
 
-      // Update URL to the valid nearest year
-      if (targetYear) {
-        router.replace(`/?year=${targetYear}`, { scroll: false });
-      } else {
-        // If no valid year found, go to home
+      if (!nearest) {
+        console.warn('No valid or nearest year found, redirecting home');
         router.replace('/', { scroll: false });
         return;
       }
+
+      console.log('Updating URL to nearest valid year:', nearest);
+
+      router.replace(`/?year=${nearest}`, { scroll: false });
+      targetYear = nearest;
     }
 
-    // Wait for Lenis to be ready with polling
-    const checkLenis = setInterval(() => {
-      const lenis = (window as any).__timelineLenis;
-      if (!lenis) return;
-
-      clearInterval(checkLenis);
-
-      const targetId = getEventIdFromYear(targetYear);
-      const target = document.getElementById(targetId);
-      if (!target) return;
-
-      const scrollContainer = document.querySelector('.timeline') as HTMLElement;
-      if (!scrollContainer) return;
-
-      // Calculate scroll position to center the target
-      const containerRect = scrollContainer.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      const scrollTop = scrollContainer.scrollTop;
-
-      // Center the target with a small offset from top
-      const offset =
-        targetRect.top -
-        containerRect.top +
-        scrollTop -
-        containerRect.height / 2 +
-        targetRect.height / 2;
-
-      // Scroll using Lenis with smooth animation
-      lenis.scrollTo(offset, {
-        duration: 1.5,
-        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
-
-      hasScrolledRef.current = true;
-    }, 50);
-
-    // Cleanup: Stop polling after 2 seconds
-    const timeout = setTimeout(() => {
-      clearInterval(checkLenis);
-      // If Lenis never loaded, fall back to native scroll
-      if (!hasScrolledRef.current) {
-        const targetId = getEventIdFromYear(targetYear);
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          hasScrolledRef.current = true;
-        }
-      }
-    }, 2000);
-
-    return () => {
-      clearInterval(checkLenis);
-      clearTimeout(timeout);
-    };
+    setResolvedYear(targetYear);
   }, [searchParams, events, router]);
 
-  return null; // No UI rendered
+  /**
+   * STEP 2:
+   * Perform the actual scroll.
+   * This MUST wait until the DOM element exists.
+   */
+  useEffect(() => {
+    if (!resolvedYear) return;
+    if (hasScrolledRef.current) return;
+
+    const selector = `[data-year="${resolvedYear}"]`;
+    const targetEl = document.querySelector(selector);
+
+    if (!targetEl) {
+      /**
+       * DOM is not ready yet.
+       * Retry on the next animation frame.
+       */
+      requestAnimationFrame(() => {
+        setResolvedYear(resolvedYear);
+      });
+      return;
+    }
+
+    /**
+     * Perform scroll only when the element exists.
+     * Use `auto` to avoid fighting scroll-driven animations.
+     */
+    targetEl.scrollIntoView({ behavior: 'auto', block: 'start'});
+
+    /**
+     * Lock scrolling ONLY after success.
+     */
+    hasScrolledRef.current = true;
+  }, [resolvedYear]);
+
+  return null;
 }

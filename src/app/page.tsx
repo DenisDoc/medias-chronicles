@@ -52,8 +52,6 @@ function TimelineContent() {
     return <LoadingSpinner />;
   }
 
-  console.log(events)
-
   return (
     <>
       <InitialScrollHandler events={events} />
