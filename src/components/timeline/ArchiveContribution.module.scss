@@ -1,0 +1,195 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  width: 100%;
+  max-width: 90rem; // 1440px - larger than timeline sections
+  margin: 0 auto;
+  padding: 10rem $container-padding-mobile;
+  opacity: 0; // Initial state for animation
+  will-change: opacity, transform;
+
+  @include respond-to('md') {
+    padding: 10rem $container-padding-desktop;
+  }
+}
+
+// Header styles - full width at top
+.header {
+  margin-bottom: 3.7rem;
+}
+
+// Content row - contains steps and options side by side
+.contentRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.stepsColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.optionsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-family: $font-display;
+  font-size: $text-xs;
+  letter-spacing: $tracking-widest;
+  text-transform: uppercase;
+  color: rgba($color-primary, 0.4);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: $font-serif;
+  font-size: clamp($text-3xl, 5vw, $text-5xl);
+  font-weight: 300;
+  color: $color-primary;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+
+.subtitle {
+  font-family: $font-serif;
+  font-size: $text-lg;
+  font-style: italic;
+  color: rgba($color-primary, 0.7);
+  line-height: 1.6;
+  max-width: 70%;
+}
+
+// Steps section
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stepTitle {
+  font-family: $font-sans;
+  font-size: $text-sm;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: $tracking-widest;
+  color: rgba($color-primary, 1);
+}
+
+.stepDescription {
+  font-family: $font-serif;
+  font-size: calc($text-sm + 3px);
+  color: rgba($color-primary, 0.7);
+  line-height: 1.6;
+  max-width: 20rem;
+}
+
+// Option cards
+.optionCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 3.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.05);
+    border-color: rgba($color-primary, 0.4);
+
+    .optionLabel {
+      color: $color-primary;
+    }
+
+    .optionIcon {
+      color: $color-primary;
+    }
+  }
+}
+
+.optionLabel {
+  font-family: $font-serif;
+  font-size: $text-lg;
+  font-style: italic;
+  color: rgba($color-primary, 0.9);
+  transition: $transition-fast;
+}
+
+.optionIcon {
+  color: rgba($color-primary, 0.7);
+  transition: $transition-fast;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &.copied {
+    color: $color-primary;
+  }
+}
+
+// CTA button
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: #E5B94B;
+  border: 1px solid #E5B94B;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: $transition-smooth;
+  text-decoration: none;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+}
+
+.ctaLabel {
+  font-family: $font-display;
+  font-size: $text-xs;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: $tracking-widest;
+  color: #000000;
+}
+
+.ctaIcon {
+  font-size: $text-lg;
+  color: #000000;
+}
+
+// Footer text
+.footer {
+  padding-top: 1.5rem;
+  font-family: $font-sans;
+  font-size: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: $tracking-widest;
+  color: rgba($color-primary, 0.3);
+}

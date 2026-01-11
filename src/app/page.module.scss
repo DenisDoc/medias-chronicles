@@ -36,5 +36,12 @@
   max-width: 100%;
   position: relative;
   z-index: $z-content;
-  padding-bottom: 10rem;
+}
+
+
+.copyRight{
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  color: rgba($color-primary, 0.4);
 }

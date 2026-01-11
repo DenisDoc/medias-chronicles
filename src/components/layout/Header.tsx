@@ -20,7 +20,7 @@ export default function Header({ menuOpen, setMenuOpen }: HeaderProps) {
       <nav className={styles.nav}>
         {/* Navigation items - placeholder for future */}
       </nav>
-      <button 
+      {/* <button 
         className={`${styles.mobileMenu} ${menuOpen ? styles.active : ''}`}
         aria-label="Menu"
         onClick={toggleMenu}
@@ -28,7 +28,11 @@ export default function Header({ menuOpen, setMenuOpen }: HeaderProps) {
         <span className={styles.hamburger}></span>
         <span className={styles.hamburger}></span>
         <span className={styles.hamburger}></span>
-      </button>
+      </button> */}
     </header>
   );
 }
+
+
+
+

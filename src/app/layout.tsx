@@ -68,19 +68,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/web-app-manifest-192x192.png" />
       </head>
       <body className={`${oswald.variable} ${cormorant.variable} ${lato.variable}`}>
-<a href="mailto:someone@example.com
-?subject=Inquiry%20from%20Website
-&body=Please%20fill%20in%20the%20details%20below:%0D%0A%0D%0A
-Name:%20%0D%0A
-Email:%20%0D%0A
-Company:%20%0D%0A
-Phone:%20%0D%0A%0D%0A
-Message:%0D%0A
---------------------%0D%0A
-%0D%0A%0D%0A
-Sent%20from%20yoursite.com">
-Send Mail
-</a>
         {children}
       </body>
     </html>

@@ -4,7 +4,7 @@ import { Suspense, useState, useEffect } from 'react';
 import { getTimelineData, generateSidebarNavigation } from '@/utils/timelineData';
 import LayoutWrapper from '@/components/layout/LayoutWrapper';
 import TimelineSection from '@/components/timeline/TimelineSection';
-import EndMarker from '@/components/timeline/EndMarker';
+import ArchiveContribution from '@/components/timeline/ArchiveContribution';
 import TimelineAnimations from '@/components/timeline/TimelineAnimations';
 import GlobalBackground from '@/components/timeline/GlobalBackground';
 import InitialScrollHandler from '@/components/timeline/InitialScrollHandler';
@@ -66,7 +66,8 @@ function TimelineContent() {
               {events.map((event) => (
                 <TimelineSection key={event.id} event={event} />
               ))}
-              <EndMarker />
+              <ArchiveContribution />
+              <h6 className={styles.copyRight}>© 2026 Cronicile Mediașului</h6>
             </TimelineAnimations>
           </div>
         </section>

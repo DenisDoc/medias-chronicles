@@ -1,0 +1,155 @@
+<html class="dark" lang="en"><head></head><body class="bg-background-dark text-primary font-sans h-screen flex flex-col overflow-hidden">```html
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Refined Minimalist Contribution Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;family=Lato:wght@100;300;400;700;900&amp;family=Oswald:wght@200;300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D5C5AB",
+                        "accent-yellow": "#E5B94B",
+                        "background-dark": "#141414",
+                        "surface-dark": "#1C1C1C",
+                        "illuminated": "#FFF9F0",
+                    },
+                    fontFamily: {
+                        display: ["'Oswald'", "sans-serif"],
+                        serif: ["'Cormorant Garamond'", "serif"],
+                        sans: ["'Lato'", "sans-serif"],
+                    },
+                    letterSpacing: {
+                        widest: '0.25em',
+                        'mega': '0.5em',
+                    }
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 20px;
+        }
+        .text-illuminated-glow {
+            text-shadow: 0 0 12px rgba(255, 249, 240, 0.4), 0 0 2px rgba(255, 249, 240, 0.1);
+        }
+        .selection-bar {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .selection-bar:hover:not(.inverted-tile) {
+            background-color: rgba(213, 197, 171, 0.05);
+            border-color: rgba(213, 197, 171, 0.4);
+        }
+        .inverted-tile:hover {
+            filter: brightness(1.1);
+        }
+    </style>
+
+
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-12 py-10 pointer-events-none">
+<div class="pointer-events-auto">
+<a class="font-display text-xl tracking-[0.4em] uppercase text-primary/80" href="#">Chronicle</a>
+</div>
+<nav class="hidden md:flex gap-12 text-[10px] font-bold tracking-[0.3em] uppercase pointer-events-auto items-center">
+<a class="text-white/30 hover:text-primary transition-colors duration-300" href="#">Origins</a>
+<a class="text-white/30 hover:text-primary transition-colors duration-300" href="#">Timeline</a>
+<a class="text-white/30 hover:text-primary transition-colors duration-300" href="#">Archive</a>
+<a class="text-white/30 hover:text-primary transition-colors duration-300" href="#">About</a>
+</nav>
+<div class="pointer-events-auto">
+<button class="material-symbols-outlined text-primary/40 hover:text-primary transition-colors">close</button>
+</div>
+</header>
+<main class="flex-1 flex relative items-center justify-start px-24">
+<div class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none z-0">
+<svg class="h-[80%] w-auto" fill="none" viewBox="0 0 500 1200" xmlns="http://www.w3.org/2000/svg">
+<path d="M150,1200 L150,550 L160,530 L160,400 L340,400 L340,530 L350,550 L350,1200" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<rect height="120" stroke="#D5C5AB" stroke-width="1.5" width="180" x="160" y="400"></rect>
+<circle cx="250" cy="460" r="40" stroke="#D5C5AB" stroke-width="1.2"></circle>
+<path d="M160,400 L250,50 L340,400" stroke="#D5C5AB" stroke-linejoin="round" stroke-width="1.5"></path>
+<line stroke="#D5C5AB" stroke-width="1.5" x1="250" x2="250" y1="50" y2="10"></line>
+<circle cx="250" cy="10" r="3" stroke="#D5C5AB" stroke-width="1.5"></circle>
+</svg>
+</div>
+<aside class="fixed left-0 top-0 bottom-0 w-24 flex flex-col items-center justify-center z-40 border-r border-white/5 bg-background-dark/20 backdrop-blur-sm">
+<div class="flex flex-col items-center h-full py-12">
+<button class="material-symbols-outlined text-illuminated text-2xl text-illuminated-glow hover:opacity-100 opacity-40 transition-opacity cursor-pointer mb-auto">keyboard_arrow_up</button>
+<div class="flex flex-col gap-8 items-center opacity-20">
+<span class="font-display text-[10px] tracking-widest vertical-rl rotate-180 uppercase">Navigation</span>
+<div class="w-[1px] h-32 bg-gradient-to-b from-transparent via-primary to-transparent"></div>
+</div>
+<button class="material-symbols-outlined text-illuminated text-2xl text-illuminated-glow hover:opacity-100 opacity-40 transition-opacity cursor-pointer mt-auto">keyboard_arrow_down</button>
+</div>
+</aside>
+<div class="grid grid-cols-12 gap-8 w-full max-w-7xl relative z-10">
+<div class="col-span-12 md:col-span-5 flex flex-col justify-center text-left">
+<header class="mb-12">
+<h2 class="font-display text-[10px] tracking-[0.4em] uppercase text-primary/40 mb-4">Archive Contribution</h2>
+<h1 class="font-serif text-4xl md:text-5xl font-light text-primary mb-6 tracking-tight leading-tight">Contribuie la Arhiva Cronologică Istorică Mediaș</h1>
+<p class="font-serif text-lg italic text-primary/60 max-w-md leading-relaxed">
+                    Mediaș lives through its records. Share your documentation, visual evidence, or oral histories to enrich the collective memory of the citadel.
+                </p>
+</header>
+<div class="space-y-8 w-full border-t border-white/[0.05] pt-10">
+<div class="flex flex-col">
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-widest text-primary/80 mb-2">Select Context</h4>
+<p class="font-serif text-sm leading-relaxed text-primary/50 max-w-xs">Identify the specific era or event in the timeline that your contribution belongs to.</p>
+</div>
+<div class="flex flex-col">
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-widest text-primary/80 mb-2">Upload Assets</h4>
+<p class="font-serif text-sm leading-relaxed text-primary/50 max-w-xs">Provide high-resolution scans, photographs, or verified transcriptions of your records.</p>
+</div>
+<div class="flex flex-col">
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-widest text-primary/80 mb-2">Cite Sources</h4>
+<p class="font-serif text-sm leading-relaxed text-primary/50 max-w-xs">Include original archival references or family history context for verification.</p>
+</div>
+<div class="flex flex-col">
+<h4 class="font-sans text-[10px] font-bold uppercase tracking-widest text-primary/80 mb-2">Editorial Review</h4>
+<p class="font-serif text-sm leading-relaxed text-primary/50 max-w-xs">Our curators will verify the submission before it becomes part of the permanent archive.</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 md:col-span-6 md:col-start-7 flex flex-col justify-center space-y-3">
+<button class="selection-bar w-full flex items-center justify-between px-8 py-4 border border-white/5 rounded-sm group">
+<span class="font-serif text-lg italic text-primary/90 group-hover:text-primary">Historical Document</span>
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors text-lg">add</span>
+</button>
+<button class="selection-bar w-full flex items-center justify-between px-8 py-4 border border-white/5 rounded-sm group">
+<span class="font-serif text-lg italic text-primary/90 group-hover:text-primary">Visual Archive</span>
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors text-lg">add</span>
+</button>
+<button class="selection-bar w-full flex items-center justify-between px-8 py-4 border border-white/5 rounded-sm group">
+<span class="font-serif text-lg italic text-primary/90 group-hover:text-primary">Oral Narrative</span>
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary transition-colors text-lg">add</span>
+</button>
+<button class="inverted-tile selection-bar w-full flex items-center justify-between px-8 py-4 bg-accent-yellow border border-accent-yellow rounded-sm group">
+<span class="font-display text-xs font-bold uppercase tracking-[0.4em] text-black">Contribuie</span>
+<span class="material-symbols-outlined text-black text-lg">arrow_forward</span>
+</button>
+<div class="pt-6 text-left">
+<p class="font-sans text-[8px] text-primary/30 uppercase tracking-[0.3em]">Institutional Submission portal v.1.2</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="fixed bottom-0 left-0 right-0 h-20 flex items-center justify-between px-12 pointer-events-none">
+<div class="text-[9px] text-primary/20 font-bold tracking-widest uppercase">Transylvania Archive</div>
+<div class="text-[9px] text-primary/20 font-bold tracking-widest uppercase">© 2024 Chronicle Mediaș</div>
+</footer>
+
+</body></html>

@@ -157,6 +157,32 @@ export default function TimelineAnimations({ children }: TimelineAnimationsProps
       );
     });
 
+    // Archive Contribution Section Animation - Distinct from timeline sections
+    gsap.utils.toArray('.archive-contribution-section').forEach((section: any) => {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 90%',
+          toggleActions: 'play none none reverse',
+          scroller: scrollContainer
+        }
+      })
+      .fromTo(section,
+        {
+          opacity: 0,
+          scale: 0.98,
+          y: 50
+        },
+        {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 1.4,
+          ease: 'power4.out'
+        }
+      );
+    });
+
     // Enhanced sidebar hover
     const sidebarLinks = gsap.utils.toArray('.sidebar-link');
     sidebarLinks.forEach((link: any) => {

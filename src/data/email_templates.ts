@@ -1,5 +1,7 @@
 const templates = {
-  create: `
+  create: {
+    subject: 'Contribuție nouă',
+    template: `
 ===============================================================
 
       CONTRIBUȚIE – MEDIAȘ CHRONICLES
@@ -72,7 +74,7 @@ Titlu / autor:
 
 → 
 
-URL (dacă există):
+Link către sursă online (dacă există) (dacă există):
 
 → 
 
@@ -88,7 +90,7 @@ Titlu / autor:
 
 → 
 
-URL:
+Link către sursă online (dacă există):
 
 → 
 
@@ -114,7 +116,7 @@ Titlu:
 
 → 
 
-URL:
+Link către sursă online (dacă există):
 
 → 
 
@@ -130,7 +132,7 @@ Titlu:
 
 → 
 
-URL:
+Link către sursă online (dacă există):
 
 → 
 
@@ -169,9 +171,12 @@ Doriți să fiți menționat public ca autor? (Da / Nu):
 VĂ MULȚUMIM PENTRU CONTRIBUȚIE!
 
 ---------------------------------------------------------------
-`,
+`
+  },
 
-  edit: `
+  edit: {
+    subject: 'Editare eveniment',
+    template: `
   ===============================================================
           EDITARE EVENIMENT – MEDIAȘ CHRONICLES
 ===============================================================
@@ -222,7 +227,7 @@ Descrierea evenimentului:
 Sursa 1:
 Titlu / autor:
 → 
-URL (dacă există):
+Link către sursă online (dacă există) (dacă există):
 → 
 Informații suplimentare:
 → 
@@ -230,7 +235,7 @@ Informații suplimentare:
 Sursa 2 (dacă este cazul):
 Titlu / autor:
 → 
-URL:
+Link către sursă online (dacă există):
 → 
 Informații suplimentare:
 → 
@@ -241,7 +246,7 @@ Informații suplimentare:
 Sursă de context 1:
 Titlu:
 → 
-URL:
+Link către sursă online (dacă există):
 → 
 Informații suplimentare:
 → 
@@ -249,7 +254,7 @@ Informații suplimentare:
 Sursă de context 2:
 Titlu:
 → 
-URL:
+Link către sursă online (dacă există):
 → 
 Informații suplimentare:
 → 
@@ -270,4 +275,160 @@ Doriți să fiți menționat public ca autor? (Da / Nu):
 VĂ MULȚUMIM PENTRU AJUTOR ȘI CONTRIBUȚIE!
 ---------------------------------------------------------------
 `
+  },
+  bugs_and_suggestions: {
+    subject: 'Feedback & Sugestii',
+    template: `
+===============================================================
+
+      FEEDBACK, BUG-URI & IDEI DE DEZVOLTARE
+                 MEDIAȘ CHRONICLES
+
+===============================================================
+
+
+
+Acest formular este destinat:
+– semnalării de probleme sau bug-uri tehnice
+– transmiterii de idei, sugestii și propuneri de îmbunătățire
+legate de platforma Mediaș Chronicles, website, funcționalități,
+design sau conceptul aplicației.
+
+Feedback-ul dumneavoastră contribuie direct la dezvoltarea și
+îmbunătățirea proiectului.
+
+Vă mulțumim!
+
+
+
+---------------------------------------------------------------
+
+1. CATEGORIA MESAJULUI
+
+---------------------------------------------------------------
+
+Selectați categoria principală a mesajului:
+
+(ex.: bug / problemă tehnică / sugestie de funcționalitate / idee de dezvoltare / feedback UX/UI / observație conceptuală / altul)
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+2. SUBIECT
+
+---------------------------------------------------------------
+
+Titlu scurt și clar:
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+3. DESCRIEREA DETALIATĂ
+
+---------------------------------------------------------------
+
+Descrieți problema, ideea sau sugestia:
+
+– pentru bug-uri: pașii de reproducere, ce ar fi trebuit să se întâmple și ce s-a întâmplat efectiv  
+– pentru idei: ce propuneți, ce problemă rezolvă, de ce ar fi util
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+4. DETALII TEHNICE (doar pentru probleme / bug-uri)
+
+---------------------------------------------------------------
+
+Completați dacă mesajul vizează o problemă tehnică.
+
+
+
+Dispozitiv:
+
+(ex.: desktop / mobil / tabletă)
+
+→ 
+
+
+
+Sistem de operare:
+
+(ex.: Windows / macOS / Linux / Android / iOS)
+
+→ 
+
+
+
+Browser / aplicație:
+
+(ex.: Chrome, Firefox, Safari, Edge / aplicația Mediaș Chronicles)
+
+→ 
+
+
+
+Versiune (dacă este cunoscută):
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+5. REFERINȚE SAU ATAȘAMENTE (opțional)
+
+---------------------------------------------------------------
+
+(ex.: capturi de ecran, link-uri, pagini afectate, exemple)
+
+
+
+Descriere:
+
+→ 
+
+Link (dacă există):
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+6. DATE DESPRE AUTOR
+
+---------------------------------------------------------------
+
+Nume:
+
+→ 
+
+Doriți să fiți contactat pentru clarificări sau follow-up? (Da / Nu):
+
+→ 
+
+Adresă de contact (e-mail) (opțional):
+
+→ 
+
+
+
+---------------------------------------------------------------
+
+VĂ MULȚUMIM PENTRU FEEDBACK ȘI CONTRIBUȚIE!
+
+---------------------------------------------------------------
+`
+  }
 }
+
+export default templates;
