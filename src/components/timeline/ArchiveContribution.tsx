@@ -31,12 +31,12 @@ export default function ArchiveContribution() {
   return (
     <div className={`${styles.container} archive-contribution-section`}>
       {/* Header section - full width */}
-      <header className={styles.header}>
-        <h1 className={styles.title}>
+      <header className={`${styles.header} contribution-header`}>
+        <h1 className={`${styles.title} contribution-title`}>
           Contribuie la Arhiva Cronologică <br></br> Istorică Mediaș
         </h1>
-        <p className={styles.subtitle}>
-          Puteți sprijini dezvoltarea continuă a arhivei prin furnizarea de<br></br>informații suplimentare sau corecții, urmărind instrucțiunile.
+        <p className={`${styles.subtitle} contribution-subtitle`}>
+          Puteți sprijini dezvoltarea continuă a arhivei prin furnizarea de<br></br>informații suplimentare sau corecții, urmărind urmatoarele instrucțiuni.
         </p>
       </header>
 
@@ -45,21 +45,21 @@ export default function ArchiveContribution() {
         {/* Steps column */}
         <div className={styles.stepsColumn}>
           <div className={styles.steps}>
-            <div className={styles.step}>
+            <div className={`${styles.step} contribution-step`}>
               <h4 className={styles.stepTitle}>Selectează</h4>
               <p className={styles.stepDescription}>
                 Selectați un șablon din lista alăturată acesta va fi copiat automat în clipboard.
               </p>
             </div>
 
-            <div className={styles.step}>
+            <div className={`${styles.step} contribution-step`}>
               <h4 className={styles.stepTitle}>Pregătește</h4>
               <p className={styles.stepDescription}>
                 Apasă butonul „Contribuie" pentru a deschide clientul tău de email. Lipește șablonul în corpul mesajului.
               </p>
             </div>
 
-            <div className={styles.step}>
+            <div className={`${styles.step} contribution-step`}>
               <h4 className={styles.stepTitle}>Completează & trimite</h4>
               <p className={styles.stepDescription}>
                 Urmează instrucțiunile, completează câmpurile si trimite email-ul
@@ -72,7 +72,7 @@ export default function ArchiveContribution() {
         {/* Options column */}
         <div className={styles.optionsColumn}>
           <button
-            className={styles.optionCard}
+            className={`${styles.optionCard} contribution-option`}
             onClick={() => handleCopyTemplate('create')}
           >
             <span className={styles.optionLabel}>Adaugă informații în arhivă</span>
@@ -82,7 +82,7 @@ export default function ArchiveContribution() {
           </button>
 
           <button
-            className={styles.optionCard}
+            className={`${styles.optionCard} contribution-option`}
             onClick={() => handleCopyTemplate('edit')}
           >
             <span className={styles.optionLabel}>Modifică informații în arhivă</span>
@@ -92,7 +92,7 @@ export default function ArchiveContribution() {
           </button>
 
           <button
-            className={styles.optionCard}
+            className={`${styles.optionCard} contribution-option`}
             onClick={() => handleCopyTemplate('bugs_and_suggestions')}
           >
             <span className={styles.optionLabel}>Întrebări, sugestii, bug-uri</span>
@@ -103,7 +103,7 @@ export default function ArchiveContribution() {
 
           <a
             href={createMailtoLink()}
-            className={styles.ctaButton}
+            className={`${styles.ctaButton} contribution-cta`}
           >
             <span className={styles.ctaLabel}>Contribuie</span>
             <span className={styles.ctaIcon}>→</span>

@@ -157,30 +157,101 @@ export default function TimelineAnimations({ children }: TimelineAnimationsProps
       );
     });
 
-    // Archive Contribution Section Animation - Distinct from timeline sections
+    // Archive Contribution Section Animation - Refined elegant animations
     gsap.utils.toArray('.archive-contribution-section').forEach((section: any) => {
-      gsap.timeline({
+      const title = section.querySelector('.contribution-title');
+      const subtitle = section.querySelector('.contribution-subtitle');
+      const steps = gsap.utils.toArray(section.querySelectorAll('.contribution-step'));
+      const options = gsap.utils.toArray(section.querySelectorAll('.contribution-option'));
+      const cta = section.querySelector('.contribution-cta');
+
+      // Main timeline for the contribution section
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
-          start: 'top 90%',
+          start: 'top 75%',
           toggleActions: 'play none none reverse',
           scroller: scrollContainer
         }
-      })
-      .fromTo(section,
-        {
-          opacity: 0,
-          scale: 0.98,
-          y: 50
-        },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 1.4,
-          ease: 'power4.out'
-        }
+      });
+
+      // Fade in container with subtle scale
+      tl.fromTo(section,
+        { opacity: 0, scale: 0.98 },
+        { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' },
+        0
       );
+
+      // Animate title - smooth slide from left with subtle blur effect
+      if (title) {
+        tl.fromTo(title,
+          { opacity: 0, x: -40, filter: 'blur(8px)' },
+          {
+            opacity: 1,
+            x: 0,
+            filter: 'blur(0px)',
+            duration: 1.2,
+            ease: 'power3.out'
+          },
+          0.15
+        );
+      }
+
+      // Animate subtitle with elegant fade-up
+      if (subtitle) {
+        tl.fromTo(subtitle,
+          { opacity: 0, y: 15 },
+          { opacity: 1, y: 0, duration: 1, ease: 'power2.out' },
+          0.35
+        );
+      }
+
+      // Stagger steps from left - refined cascading effect
+      if (steps.length > 0) {
+        tl.fromTo(steps,
+          { opacity: 0, x: -25, y: 10 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out'
+          },
+          0.5
+        );
+      }
+
+      // Stagger option cards from bottom - smooth elegant reveal
+      if (options.length > 0) {
+        tl.fromTo(options,
+          { opacity: 0, y: 40, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            stagger: 0.1,
+            ease: 'power3.out'
+          },
+          0.55
+        );
+      }
+
+      // CTA button - refined scale with subtle bounce
+      if (cta) {
+        tl.fromTo(cta,
+          { opacity: 0, scale: 0.92, y: 15 },
+          {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            duration: 1.1,
+            ease: 'back.out(1.5)'
+          },
+          0.95
+        );
+      }
     });
 
     // Enhanced sidebar hover
