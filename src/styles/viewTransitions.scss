@@ -1,0 +1,99 @@
+/* Enable View Transitions on specific elements */
+.title-decoration {
+  view-transition-name: decoration;
+}
+
+.title {
+  view-transition-name: timeline-title;
+}
+
+.info {
+  view-transition-name: timeline-info;
+}
+
+/* Decoration bar animation - scale from left */
+::view-transition-new(decoration) {
+  animation: decoration-scale 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes decoration-scale {
+  from {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* Title animation - fade + slide with delay */
+::view-transition-new(timeline-title) {
+  animation: title-fade-slide 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
+}
+
+@keyframes title-fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Info animation - fade + slide with longer delay */
+::view-transition-new(timeline-info) {
+  animation: info-fade-slide 1.0s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s both;
+}
+
+@keyframes info-fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sources/Context section animation */
+.sources-context-section {
+  view-transition-name: sources-context;
+}
+
+::view-transition-new(sources-context) {
+  animation: fade-slide 1.0s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
+}
+
+@keyframes fade-slide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fallback for browsers without View Transitions support */
+@supports not (view-transition-name: none) {
+  .title,
+  .info,
+  .title-decoration,
+  .sources-context-section {
+    animation: simple-fade-in 0.5s ease-out;
+  }
+
+  @keyframes simple-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

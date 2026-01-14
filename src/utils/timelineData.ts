@@ -5,8 +5,10 @@ import { TimelineEntry, ProcessedTimelineEvent, CenturyGroup, SidebarNavItem } f
  * Generate stable ID from date for anchor links
  */
 export function generateEventId(date: string): string {
-  // Extract year from date (e.g., "1267-06-03" -> "1267", "1146" -> "1146")
-  const year = date.split('-')[0];
+  // Extract first 4-digit year from date string
+  // Handles: "1471, 6. I.", "1601–1604", "1267-06-03", "1146"
+  const match = date.match(/^\d{4}/);
+  const year = match ? match[0] : date.split(/[,\-–\s]/)[0];
   return `year-${year}`;
 }
 
@@ -79,7 +81,9 @@ export function generateSidebarNavigation(
   const seenYears = new Set<string>();
 
   events.forEach((event) => {
-    const year = event.date.split('-')[0];
+    // Extract year consistently using same logic as generateEventId
+    const match = event.date.match(/^\d{4}/);
+    const year = match ? match[0] : event.date.split(/[,\-–\s]/)[0];
 
     // Insert century divider when century changes (including before first event)
     if (event.century !== currentCentury) {
@@ -154,4 +158,12 @@ export function findEventByYear(
  */
 export function getAvailableYears(events: ProcessedTimelineEvent[]): string[] {
   return events.map(event => event.date.split('-')[0]);
+}
+
+/**
+ * Get event by ID
+ */
+export function getEventById(id: string): ProcessedTimelineEvent | null {
+  const events = getTimelineData();
+  return events.find(event => event.id === id) || null;
 }

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Oswald, Cormorant_Garamond, Lato } from "next/font/google";
+import { getTimelineData, generateSidebarNavigation } from '@/utils/timelineData';
+import LayoutWrapper from '@/components/layout/LayoutWrapper';
 import "./globals.scss";
+import "@/styles/viewTransitions.scss";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -56,6 +59,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Load all events for sidebar navigation
+  const events = getTimelineData();
+  const navItems = generateSidebarNavigation(events);
+
   return (
     <html lang="ro" className="dark">
       <head>
@@ -68,7 +75,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/web-app-manifest-192x192.png" />
       </head>
       <body className={`${oswald.variable} ${cormorant.variable} ${lato.variable}`}>
-        {children}
+        <LayoutWrapper navItems={navItems}>
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );

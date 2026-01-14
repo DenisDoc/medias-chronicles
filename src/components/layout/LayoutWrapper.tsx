@@ -7,6 +7,8 @@ import Sidebar from './Sidebar';
 import { SidebarNavItem } from '@/types/timeline';
 import styles from './LayoutWrapper.module.scss';
 
+import {ViewTransition} from 'react';
+
 interface LayoutWrapperProps {
   navItems: SidebarNavItem[];
   children: ReactNode;
@@ -93,7 +95,9 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
           ref={sidebarRef}
           className={styles.sidebarContainer}
         >
-          <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} />
+          <ViewTransition>
+            <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} />
+          </ViewTransition>
         </div>
         
         {/* Timeline content */}

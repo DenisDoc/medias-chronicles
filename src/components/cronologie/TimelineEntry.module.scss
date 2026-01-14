@@ -1,0 +1,80 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.timelineEntry {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+.content {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  max-width: 96rem; // 6xl
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: relative;
+  z-index: $z-content;
+  width: 100%;
+}
+
+.dateMobile {
+  font-family: $font-serif;
+  font-size: 2.1rem;
+  font-weight: 300;
+  color: rgba($color-primary, 0.8);
+  margin-bottom: 7px;
+
+  @include respond-to('md') {
+    display: none;
+  }
+}
+
+.title {
+  font-family: $font-sans;
+  font-size: $text-xs;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba($color-accent-gold, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  @include respond-to('md') {
+    font-size: $text-sm;
+  }
+}
+
+.titleDecoration {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: rgba($color-accent-gold, 0.2);
+}
+
+.info {
+  position: relative;
+  font-family: $font-serif;
+  font-size: $text-4xl;
+  font-weight: 300;
+  color: rgba($color-primary, 0.8);
+  line-height: 1.15;
+  max-width: 100%;
+
+  @include respond-to('md') {
+    font-size: $text-6xl;
+    line-height: 1.1;
+  }
+
+  @include respond-to('lg') {
+    font-size: $text-7xl;
+  }
+}

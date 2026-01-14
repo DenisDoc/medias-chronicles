@@ -23,6 +23,10 @@ html {
 }
 
 body {
+  overflow-y: scroll !important;
+  scrollbar-gutter: stable !important;
+  display: flex;
+  justify-content: center;
   background-color: $color-background-dark;
   color: $color-primary;
   font-family: $font-sans;
