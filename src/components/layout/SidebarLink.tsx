@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useNavigation } from '@/contexts/NavigationContext';
 import styles from './Sidebar.module.scss';
 
 interface SidebarLinkProps {
@@ -12,9 +13,13 @@ interface SidebarLinkProps {
 
 export default function SidebarLink({ targetId, year, isFirstOfCentury, onNavigate }: SidebarLinkProps) {
   const router = useRouter();
+  const { setActiveYear } = useNavigation();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+
+    // Update sidebar IMMEDIATELY (before navigation starts)
+    setActiveYear(year);
 
     // Use View Transitions API for smooth page transition
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {

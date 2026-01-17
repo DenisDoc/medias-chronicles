@@ -27,23 +27,25 @@ export default function TimelineEntry({ event, allEvents }: TimelineEntryProps) 
       <GlobalBackground />
 
       <section className={styles.content}>
-        <h2 className={`${styles.dateMobile} title`}>
+        <h2 className={`${styles.dateMobile} title animate-title`}>
           {year}
         </h2>
 
-        <h1 className={`${styles.title} title`}>
-          <span className={`${styles.titleDecoration} title-decoration`}></span>
+        <h1 className={`${styles.title} title animate-title`}>
+          <span className={`${styles.titleDecoration} title-decoration animate-decoration`}></span>
           {event.title}
         </h1>
 
-        <p className={`${styles.info} info`}
+        <p className={`${styles.info} info animate-info`}
            dangerouslySetInnerHTML={{ __html: event.presentation }} />
 
         {(event.sources.length > 0 || event.context.length > 0) && (
-          <SourcesContextSection
-            sources={event.sources}
-            context={event.context}
-          />
+          <div className="animate-sources">
+            <SourcesContextSection
+              sources={event.sources}
+              context={event.context}
+            />
+          </div>
         )}
       </section>
     </div>

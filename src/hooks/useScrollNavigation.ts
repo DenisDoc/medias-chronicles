@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { ProcessedTimelineEvent } from '@/types/timeline';
+import { useNavigation } from '@/contexts/NavigationContext';
 
 function debounce(func: Function, wait: number) {
   let timeout: NodeJS.Timeout;
@@ -21,6 +22,7 @@ export function useScrollNavigation(
   allEvents: ProcessedTimelineEvent[]
 ) {
   const router = useRouter();
+  const { setActiveYear } = useNavigation();
   const isNavigating = useRef(false);
 
   useEffect(() => {
@@ -59,6 +61,9 @@ export function useScrollNavigation(
   function navigateToEntry(eventId: string) {
     isNavigating.current = true;
     const cleanId = eventId.replace('year-', '');
+
+    // Update sidebar IMMEDIATELY (before navigation starts)
+    setActiveYear(cleanId.split('-')[0]);
 
     // Use View Transitions API if available
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {

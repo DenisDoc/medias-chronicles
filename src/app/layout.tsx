@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Oswald, Cormorant_Garamond, Lato } from "next/font/google";
 import { getTimelineData, generateSidebarNavigation } from '@/utils/timelineData';
 import LayoutWrapper from '@/components/layout/LayoutWrapper';
+import { NavigationProvider } from '@/contexts/NavigationContext';
+import { LoadingProvider } from '@/contexts/LoadingContext';
+import GlobalLoadingScreen from '@/components/common/GlobalLoadingScreen';
 import "./globals.scss";
 import "@/styles/viewTransitions.scss";
 
@@ -75,9 +78,14 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icons/web-app-manifest-192x192.png" />
       </head>
       <body className={`${oswald.variable} ${cormorant.variable} ${lato.variable}`}>
-        <LayoutWrapper navItems={navItems}>
-          {children}
-        </LayoutWrapper>
+        <NavigationProvider>
+          <LoadingProvider>
+            <GlobalLoadingScreen />
+            <LayoutWrapper navItems={navItems}>
+              {children}
+            </LayoutWrapper>
+          </LoadingProvider>
+        </NavigationProvider>
       </body>
     </html>
   );

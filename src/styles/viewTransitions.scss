@@ -97,3 +97,69 @@
     }
   }
 }
+
+/* ===== MOBILE-SAFE ANIMATIONS ===== */
+/* Only apply CSS animations when View Transitions API is NOT supported */
+/* This prevents double animations on desktop (View Transitions + CSS) */
+@supports not (view-transition-name: none) {
+  .animate-decoration {
+    animation: decoration-scale-entry 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
+  .animate-title {
+    animation: title-fade-slide-entry 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) 0.15s both;
+  }
+
+  .animate-info {
+    animation: info-fade-slide-entry 1.0s cubic-bezier(0.215, 0.61, 0.355, 1) 0.3s both;
+  }
+
+  .animate-sources {
+    animation: sources-fade-slide-entry 1.0s cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s both;
+  }
+}
+
+/* Keyframes defined globally (used by @supports fallback above) */
+@keyframes decoration-scale-entry {
+  from {
+    transform: scaleX(0);
+    transform-origin: left center;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+@keyframes title-fade-slide-entry {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes info-fade-slide-entry {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sources-fade-slide-entry {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

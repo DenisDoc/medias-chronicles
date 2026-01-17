@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { ProcessedTimelineEvent } from '@/types/timeline';
+import { useNavigation } from '@/contexts/NavigationContext';
 
 const SWIPE_THRESHOLD = 100; // Minimum swipe distance in pixels
 
@@ -11,6 +12,7 @@ export function useSwipeNavigation(
   allEvents: ProcessedTimelineEvent[]
 ) {
   const router = useRouter();
+  const { setActiveYear } = useNavigation();
   const touchStartY = useRef(0);
   const isNavigating = useRef(false);
 
@@ -55,6 +57,9 @@ export function useSwipeNavigation(
   function navigateToEntry(eventId: string) {
     isNavigating.current = true;
     const cleanId = eventId.replace('year-', '');
+
+    // Update sidebar IMMEDIATELY (before navigation starts)
+    setActiveYear(cleanId.split('-')[0]);
 
     // Use View Transitions API if available
     if (typeof document !== 'undefined' && 'startViewTransition' in document) {

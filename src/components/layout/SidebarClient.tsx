@@ -1,22 +1,23 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 import Lenis from 'lenis';
+import { useNavigation } from '@/contexts/NavigationContext';
 
 interface SidebarClientProps {
   children: React.ReactNode;
 }
 
 export default function SidebarClient({ children }: SidebarClientProps) {
-  const pathname = usePathname(); // "/cronologie/1146" or "/cronologie/1%20Epoca%20desc%C4%83lec%C4%83tului"
+  const { activeYear } = useNavigation();
   const rafIdRef = useRef<number | null>(null);
+  const lenisRef = useRef<Lenis | null>(null);
+  const navLinksRef = useRef<NodeListOf<Element> | null>(null);
+  const prevActiveLinkRef = useRef<HTMLElement | null>(null);
 
-  // Extract year from current path
-  // pathname is already decoded by Next.js usePathname()
-  const currentYear = pathname.split('/').pop() || '';
-  const baseYear = currentYear.split('-')[0]; // Handle "1146-1" → "1146"
+  // Handle "1146-1" → "1146"
+  const baseYear = activeYear.split('-')[0];
 
   // Initialize Lenis for sidebar scrolling
   useEffect(() => {
@@ -53,6 +54,12 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       syncTouchLerp: 0.1,
     });
 
+    // Store Lenis in ref for later access
+    lenisRef.current = sidebarLenis;
+
+    // Cache sidebar links for animation (avoids querySelectorAll on every activeYear change)
+    navLinksRef.current = document.querySelectorAll('.sidebar-link');
+
     // RAF loop
     const raf = (time: number) => {
       sidebarLenis.raf(time);
@@ -65,13 +72,15 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
       }
+      lenisRef.current = null;
       sidebarLenis.destroy();
     }
 
     return cleanup;
   }, []);
 
-  // Update active link highlighting when route changes
+  // Update active link highlighting when activeYear changes
+  // OPTIMIZED: Only animate 1 link (active) instead of all 500
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -79,7 +88,8 @@ export default function SidebarClient({ children }: SidebarClientProps) {
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
-    const navLinks = document.querySelectorAll('.sidebar-link');
+    // Use cached navLinks, fallback to query if not cached yet
+    const navLinks = navLinksRef.current || document.querySelectorAll('.sidebar-link');
     const wrapper = document.querySelector('.sidebar-wrapper') as HTMLElement;
 
     if (!navLinks.length) return;
@@ -87,53 +97,62 @@ export default function SidebarClient({ children }: SidebarClientProps) {
     // Find active link based on current year
     const activeLink = Array.from(navLinks).find((link) => {
       const linkYear = link.getAttribute('data-year-value');
-      return linkYear === currentYear || linkYear === baseYear;
+      return linkYear === activeYear || linkYear === baseYear;
     }) as HTMLElement | null;
 
     if (prefersReducedMotion) {
       navLinks.forEach((l) => l.classList.remove('active'));
       activeLink?.classList.add('active');
-    } else {
-      // Reset all links
-      gsap.to(navLinks, {
+      return;
+    }
+
+    // Animate previous active link back to inactive state (just 1 animation, not 500!)
+    if (prevActiveLinkRef.current && prevActiveLinkRef.current !== activeLink) {
+      gsap.killTweensOf(prevActiveLinkRef.current);
+      gsap.to(prevActiveLinkRef.current, {
         fontSize: '1.25rem',
         color: 'rgba(255,255,255,0.2)',
-        fontWeight: 300,
+        duration: 0.4,
+        ease: 'power2.out',
+      });
+    }
+
+    if (activeLink) {
+      // Kill any existing animation on this link
+      gsap.killTweensOf(activeLink);
+
+      // Only animate the active link with GSAP (not all 500!)
+      gsap.to(activeLink, {
+        fontSize: '2.25rem',
+        color: '#D5C5AB',
         duration: 0.6,
         ease: 'power2.out',
       });
 
-      if (activeLink) {
-        // Activate link
-        gsap.to(activeLink, {
-          fontSize: '2.25rem',
-          color: '#D5C5AB',
-          duration: 0.6,
-          ease: 'power2.out',
-        });
+      // Store reference for cleanup on next change
+      prevActiveLinkRef.current = activeLink;
 
-        // Auto-center active link in sidebar
-        if (wrapper) {
-          const sidebarLenis = (wrapper as any).__lenis;
-          if (sidebarLenis) {
-            const linkRect = activeLink.getBoundingClientRect();
-            const wrapperRect = wrapper.getBoundingClientRect();
+      // Auto-center active link in sidebar
+      if (wrapper) {
+        const wrapperHeight = wrapper.clientHeight;
+        const linkOffsetTop = activeLink.offsetTop;
+        const linkHeight = activeLink.offsetHeight;
+        const targetScroll = linkOffsetTop - (wrapperHeight / 2) + (linkHeight / 2);
+        const currentScroll = wrapper.scrollTop;
 
-            const linkCenter = linkRect.top + linkRect.height / 2;
-            const wrapperCenter = wrapperRect.top + wrapperRect.height / 2;
-            const offset = linkCenter - wrapperCenter;
-
-            if (Math.abs(offset) > 40) {
-              sidebarLenis.scrollTo(sidebarLenis.scroll + offset, {
-                duration: 0.8,
-                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-              });
-            }
+        if (Math.abs(targetScroll - currentScroll) > 40) {
+          if (lenisRef.current) {
+            lenisRef.current.scrollTo(targetScroll, {
+              duration: 0.8,
+              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
+          } else {
+            wrapper.scrollTo({ top: targetScroll, behavior: 'smooth' });
           }
         }
       }
     }
-  }, [pathname, currentYear, baseYear]);
+  }, [activeYear, baseYear]);
 
   return <>{children}</>;
 }

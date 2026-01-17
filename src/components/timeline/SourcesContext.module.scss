@@ -5,8 +5,6 @@
   width: 100%;
   max-width: 64rem; // 4xl
   margin-top: 3.5rem;
-  opacity: 0;
-  will-change: opacity, transform;
 }
 
 .grid {
@@ -55,15 +53,6 @@
   flex-direction: column;
   width: 100%;
 }
-
-// $text-xs: 0.625rem;      // 10px
-// $text-sm: 0.75rem;       // 12px
-// $text-base: 1rem;        // 16px
-// $text-lg: 1.125rem;      // 18px
-// $text-xl: 1.25rem;       // 20px
-// $text-2xl: 1.5rem;       // 24px
-// $text-3xl: 1.875rem;     // 30px
-// $text-4xl: 2.25rem;      // 36px
 
 .sectionTitle {
   font-family: $font-sans;

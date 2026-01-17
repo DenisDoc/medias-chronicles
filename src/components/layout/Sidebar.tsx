@@ -116,8 +116,7 @@ export default function Sidebar({ navItems, menuOpen = false, onClose }: Sidebar
                 }
 
                 // Determine if this is the first event of a new century
-                const isFirstOfCentury =
-                  index === 0 || navItems[index - 1].isCenturyDivider;
+                const isFirstOfCentury = index === 0 || navItems[index - 1].isCenturyDivider;
 
                 return (
                   <SidebarLink

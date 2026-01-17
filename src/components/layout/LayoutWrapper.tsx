@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, ReactNode, useRef, useEffect } from 'react';
+import { useState, ReactNode, useRef, useEffect, startTransition, addTransitionType } from 'react';
 import gsap from 'gsap';
 import Header from './Header';
 import Sidebar from './Sidebar';
@@ -95,13 +95,12 @@ export default function LayoutWrapper({ navItems, children }: LayoutWrapperProps
           ref={sidebarRef}
           className={styles.sidebarContainer}
         >
-          <ViewTransition>
-            <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} />
-          </ViewTransition>
+        <Sidebar navItems={navItems} menuOpen={menuOpen} onClose={closeMenu} /> 
         </div>
         
-        {/* Timeline content */}
+       <ViewTransition>
         {children}
+          </ViewTransition>
       </main>
     </>
   );
